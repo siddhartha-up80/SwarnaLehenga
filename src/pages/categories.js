@@ -6,7 +6,7 @@ const Categories = () => {
       <section className="text-gray-600 body-font dark:text-white">
         <div className=" px-5 py-5 mx-auto">
           <div className="flex flex-wrap justify-center m-4 gap-10 gap-x-20">
-            <Link href="/lehenga" className="card w-96 bg-base-100 shadow-xl">
+            <Link href="/lehenga" className="card w-96 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Lehenga</h2>
                 <p>Step Into The Elegance</p>
@@ -18,7 +18,7 @@ const Categories = () => {
                 />
               </figure>
             </Link>
-            <Link href="/saree" className="card w-96 bg-base-100 shadow-xl">
+            <Link href="/saree" className="card w-96  shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Saree</h2>
                 <p>Step Into The Elegance</p>
@@ -30,7 +30,7 @@ const Categories = () => {
                 />
               </figure>
             </Link>
-            <Link href="/kurti" className="card w-96 bg-base-100 shadow-xl">
+            <Link href="/kurti" className="card w-96  shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Kurti</h2>
                 <p>Step Into The Elegance</p>

@@ -6,7 +6,7 @@ const Lehenga = () => {
       <section className="text-gray-600 body-font dark:text-white">
         <div className=" px-5 py-5 mx-auto">
           <div className="flex flex-wrap justify-center m-4 gap-10 gap-x-20">
-            <div className="card w-[20rem] max-h-[26rem] dark:bg-rose-800 glass">
+            <div className="card w-[20rem] max-h-[26rem] glass">
               <figure>
                 <img
                   src="https://source.unsplash.com/random/1080×1920/?lehenga"
