@@ -167,13 +167,16 @@ const PageContainer = ({
                             <div className="flex justify-between w-full pb-2 space-x-2">
                               <div className="space-y-1">
                                 <h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                                  Polaroid camera
+                                  {cart[k].productName}
+                                  
                                 </h3>
                                 <p className="">
                                   Items:{" "}
-                                  <span className="font-semibold">1</span>
+                                  <span className="font-semibold">
+                                    {cart[k].quantity}
+                                  </span>
                                 </p>
-                                <p className="">75.50€</p>
+                                <p className="">{cart[k].price}</p>
                               </div>
                               <div className="text-right">
                                 <p className="text-lg font-semibold">59.99€</p>
@@ -213,9 +216,9 @@ const PageContainer = ({
                                 <span>Remove</span>
                               </button>
                               <div className="flex items-center flex-row px-2 py-1 space-x-1">
-                                <RemoveIcon className="cursor-pointer"></RemoveIcon>
+                                <RemoveIcon onClick={()=>{removefromCart(cart[k].itemCode, 1, cart[k].price, cart[k].productName, cart[k].variant)}} className="cursor-pointer"></RemoveIcon>
                                 <span>1</span>
-                                <AddIcon className="cursor-pointer"></AddIcon>
+                                <AddIcon onClick={()=>{addtoCart()}} className="cursor-pointer"></AddIcon>
                               </div>
                             </div>
                           </div>

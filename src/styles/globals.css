@@ -8,9 +8,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
+body {
   overflow-x: hidden;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: rgb(255, 233, 233);
+  font-family: "Courier New", Courier, monospace;
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  
+  body {
+    background-color: rgb(103, 8, 8);
+  }
 }
