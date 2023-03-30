@@ -1,18 +1,18 @@
 import React, { useRef } from "react";
 import Footer from "./Footer";
 
-import { BiCartAlt } from "react-icons/Bi";
+import { BiCartAlt } from "react-icons/bi";
 import Link from "next/link";
-import { TbCategory } from "react-icons/Tb";
+import { TbCategory } from "react-icons/tb";
 
-import { TbBookmark } from "react-icons/Tb";
-import { TbUserCircle } from "react-icons/Tb";
-import { TfiClose } from "react-icons/Tfi";
+import { TbBookmark } from "react-icons/tb";
+import { TbUserCircle } from "react-icons/tb";
+import { TfiClose } from "react-icons/tfi";
 import {
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
   AiOutlineDelete,
-} from "react-icons/Ai";
+} from "react-icons/ai";
 
 const PageContainer = ({
   Component,
