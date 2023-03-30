@@ -1,9 +1,12 @@
 import React from 'react'
-import { TbCategory } from "react-icons/Tb";
-import { TbHome2 } from "react-icons/Tb";
-import { TbShoppingCart } from "react-icons/Tb";
-import { TbBookmark } from "react-icons/Tb";
-import { TbUserCircle } from "react-icons/Tb";
+
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CategoryIcon from "@mui/icons-material/Category";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import PersonIcon from "@mui/icons-material/Person";
+
+import HomeIcon from "@mui/icons-material/Home";
+
 import Link from 'next/link';
 
 const Footer = ({ toggleCart }) => {
@@ -17,7 +20,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5  hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/">
-              <TbHome2 className="text-2xl m-4"></TbHome2>
+              <HomeIcon className="text-2xl m-4"></HomeIcon>
             </Link>
             <span className="sr-only">Home</span>
           </button>
@@ -35,7 +38,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/categories">
-              <TbCategory className="text-2xl m-4"></TbCategory>
+              <CategoryIcon className="text-2xl m-4"></CategoryIcon>
             </Link>
 
             <span className="sr-only">Wallet</span>
@@ -55,7 +58,7 @@ const Footer = ({ toggleCart }) => {
               className="inline-flex items-center justify-center w-12 h-12 font-medium bg-rose-600 rounded-full hover:bg-rose-700 group focus:ring-4 focus:ring-rose-300 focus:outline-none dark:focus:ring-rose-800"
               onClick={toggleCart}
             >
-              <TbShoppingCart className="text-2xl m-2"></TbShoppingCart>
+              <ShoppingCartIcon className="text-2xl m-2"></ShoppingCartIcon>
             </button>
           </div>
           <div
@@ -72,7 +75,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/favourite">
-              <TbBookmark className="text-2xl m-4"></TbBookmark>
+              <BookmarkIcon className="text-2xl m-4"></BookmarkIcon>
             </Link>
 
             <span className="sr-only">Settings</span>
@@ -91,7 +94,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/profile">
-              <TbUserCircle className="text-2xl m-4"></TbUserCircle>
+              <PersonIcon className="text-2xl m-4"></PersonIcon>
             </Link>
 
             <span className="sr-only">Profile</span>

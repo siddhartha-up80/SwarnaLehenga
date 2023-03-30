@@ -4,9 +4,9 @@ import Link from 'next/link';
 const Saree = () => {
   return (
     <div>
-      <section class="text-gray-600 body-font dark:text-white">
-        <div class=" px-5 py-5 mx-auto">
-          <div class="flex flex-wrap justify-center m-4 gap-10 gap-x-20">
+      <section className="text-gray-600 body-font dark:text-white">
+        <div className=" px-5 py-5 mx-auto">
+          <div className="flex flex-wrap justify-center m-4 gap-10 gap-x-20">
             <div className="card w-[20rem] max-h-[26rem] dark:bg-rose-800 glass">
               <figure>
                 <img

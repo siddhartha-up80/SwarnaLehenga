@@ -1,18 +1,27 @@
 import React, { useRef } from "react";
 import Footer from "./Footer";
 
-import { BiCartAlt } from "react-icons/bi";
+// import { BiCartAlt } from "react-icons/Bi";
 import Link from "next/link";
-import { TbCategory } from "react-icons/tb";
+// import { TbCategory } from "react-icons/Tb";
 
-import { TbBookmark } from "react-icons/tb";
-import { TbUserCircle } from "react-icons/tb";
-import { TfiClose } from "react-icons/tfi";
-import {
-  AiOutlinePlusCircle,
-  AiOutlineMinusCircle,
-  AiOutlineDelete,
-} from "react-icons/ai";
+// import { TbBookmark } from "react-icons/Tb";
+// import { TbUserCircle } from "react-icons/Tb";
+// import { TfiClose } from "react-icons/Tfi";
+// import {
+//   AiOutlinePlusCircle,
+//   AiOutlineMinusCircle,
+//   AiOutlineDelete,
+// } from "react-icons/Ai";
+
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CategoryIcon from "@mui/icons-material/Category";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import PersonIcon from "@mui/icons-material/Person";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const PageContainer = ({
   Component,
@@ -87,7 +96,7 @@ const PageContainer = ({
                 <div className="dropdown dropdown-hover ">
                   <label tabIndex={0} className="flex gap-2">
                     <Link href="/categories">Categories</Link>
-                    <TbCategory className="mt-1"></TbCategory>
+                    <CategoryIcon className="mt-1"></CategoryIcon>
                   </label>
 
                   <ul
@@ -107,19 +116,19 @@ const PageContainer = ({
                 </div>
                 <div className="flex gap-2">
                   <Link href="/favourite">Favourite</Link>
-                  <TbBookmark className="mt-1"></TbBookmark>
+                  <BookmarkIcon className="mt-1"></BookmarkIcon>
                 </div>
                 <div className="flex gap-2">
                   <Link href="/profile">Profile</Link>
-                  <TbUserCircle className="mt-1"></TbUserCircle>
+                  <PersonIcon className="mt-1"></PersonIcon>
                 </div>
               </div>
 
               <div className="ml-8 mr-3 flex cursor-pointer">
-                <BiCartAlt
+                <ShoppingCartIcon
                   onClick={toggleCart}
                   className="text-2xl mr-2"
-                ></BiCartAlt>
+                ></ShoppingCartIcon>
               </div>
             </div>
 
@@ -128,10 +137,10 @@ const PageContainer = ({
               ref={ref}
               className="sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-rose-50 dark:bg-rose-400 transition-transform translate-x-full transform rounded-b-xl lg:h-[90vh] shadow-md z-10"
             >
-              <TfiClose
+              <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
                 onClick={toggleCart}
-              ></TfiClose>
+              ></CloseIcon>
 
               <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark:text-white">
                 <h2 className="text-xl font-semibold">Your cart</h2>
@@ -144,7 +153,10 @@ const PageContainer = ({
                   {/* mapping cart items  */}
                   {Object.keys(cart).map((k) => {
                     return (
-                      <li key={k} className="flex flex-col py-6 sm:flex-row sm:justify-between">
+                      <li
+                        key={k}
+                        className="flex flex-col py-6 sm:flex-row sm:justify-between"
+                      >
                         <div className="flex w-full space-x-2 sm:space-x-4">
                           <img
                             className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500"
@@ -201,9 +213,9 @@ const PageContainer = ({
                                 <span>Remove</span>
                               </button>
                               <div className="flex items-center flex-row px-2 py-1 space-x-1">
-                                <AiOutlineMinusCircle className="cursor-pointer"></AiOutlineMinusCircle>
+                                <RemoveIcon className="cursor-pointer"></RemoveIcon>
                                 <span>1</span>
-                                <AiOutlinePlusCircle className="cursor-pointer"></AiOutlinePlusCircle>
+                                <AddIcon className="cursor-pointer"></AddIcon>
                               </div>
                             </div>
                           </div>
@@ -238,13 +250,14 @@ const PageContainer = ({
                       className="px-6 py-2 border rounded-md border-rose-600"
                       onClick={() => {
                         clearCart();
-                        setTimeout(()=> toggleCart(),500)
+                        setTimeout(() => toggleCart(), 500);
                       }}
                     >
-                      <span>
-                        <AiOutlineDelete></AiOutlineDelete>
+                      <span className="text-black">
+                        <DeleteOutlineIcon></DeleteOutlineIcon>
                       </span>
                     </button>
+                    
                   )}
 
                   {!Object.keys(cart).length == 0 && (

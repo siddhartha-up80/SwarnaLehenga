@@ -3,9 +3,9 @@ import Link from 'next/link';
 const Categories = () => {
   return (
     <div>
-      <section class="text-gray-600 body-font dark:text-white">
-        <div class=" px-5 py-5 mx-auto">
-          <div class="flex flex-wrap justify-center m-4 gap-10 gap-x-20">
+      <section className="text-gray-600 body-font dark:text-white">
+        <div className=" px-5 py-5 mx-auto">
+          <div className="flex flex-wrap justify-center m-4 gap-10 gap-x-20">
             <Link href="/lehenga" className="card w-96 bg-base-100 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Lehenga</h2>
