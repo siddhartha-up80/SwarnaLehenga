@@ -1,19 +1,8 @@
 import React, { useRef } from "react";
 import Footer from "./Footer";
-
-// import { BiCartAlt } from "react-icons/Bi";
 import Link from "next/link";
-// import { TbCategory } from "react-icons/Tb";
 
-// import { TbBookmark } from "react-icons/Tb";
-// import { TbUserCircle } from "react-icons/Tb";
-// import { TfiClose } from "react-icons/Tfi";
-// import {
-//   AiOutlinePlusCircle,
-//   AiOutlineMinusCircle,
-//   AiOutlineDelete,
-// } from "react-icons/Ai";
-
+// material ui icons 
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CategoryIcon from "@mui/icons-material/Category";
@@ -48,7 +37,7 @@ const PageContainer = ({
       <div className="drawer h-full dark:text-white ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full navbar flex justify-between bg-rose-600 text-white">
+          <div className="w-full  navbar flex justify-between bg-rose-600 text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex-none lg:hidden">
@@ -168,7 +157,6 @@ const PageContainer = ({
                               <div className="space-y-1">
                                 <h3 className="text-lg font-semibold leading-snug sm:pr-8">
                                   {cart[k].productName}
-                                  
                                 </h3>
                                 <p className="">
                                   Items:{" "}
@@ -216,9 +204,33 @@ const PageContainer = ({
                                 <span>Remove</span>
                               </button>
                               <div className="flex items-center flex-row px-2 py-1 space-x-1">
-                                <RemoveIcon onClick={()=>{removefromCart(cart[k].itemCode, 1, cart[k].price, cart[k].productName, cart[k].variant)}} className="cursor-pointer"></RemoveIcon>
-                                <span>1</span>
-                                <AddIcon onClick={()=>{addtoCart()}} className="cursor-pointer"></AddIcon>
+                                <RemoveIcon
+                                  onClick={() => {
+                                    removefromCart(
+                                      k,
+                                      1,
+                                      cart[k].price,
+                                      cart[k].productName,
+                                      cart[k].size,
+                                      cart[k].variant
+                                    );
+                                  }}
+                                  className="cursor-pointer"
+                                ></RemoveIcon>
+                                <span>{cart[k].quantity}</span>
+                                <AddIcon
+                                  onClick={() => {
+                                    addtoCart(
+                                      k,
+                                      1,
+                                      cart[k].price,
+                                      cart[k].productName,
+                                      cart[k].size,
+                                      cart[k].variant
+                                    );
+                                  }}
+                                  className="cursor-pointer"
+                                ></AddIcon>
                               </div>
                             </div>
                           </div>
@@ -260,7 +272,6 @@ const PageContainer = ({
                         <DeleteOutlineIcon></DeleteOutlineIcon>
                       </span>
                     </button>
-                    
                   )}
 
                   {!Object.keys(cart).length == 0 && (

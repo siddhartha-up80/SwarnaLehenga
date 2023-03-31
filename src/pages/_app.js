@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
 
   // save cart item to local storage
   const saveCart = (myCart) => {
-    localStorage.setItem("cart", myCart);
+    localStorage.setItem("cart", JSON.stringify(myCart));
 
     // subtotal calculation
     let subt = 0;
@@ -70,7 +70,7 @@ export default function App({ Component, pageProps }) {
     size,
     variant
   ) => {
-    let newCart = cart;
+    let newCart = JSON.parse(JSON.stringify(cart));
     if (itemCode in cart) {
       newCart[itemCode].quantity = cart[itemCode].quantity - quantity;
     }
