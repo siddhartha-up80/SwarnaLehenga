@@ -37,7 +37,7 @@ const PageContainer = ({
       <div className="drawer h-full dark:text-white ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full  navbar flex justify-between bg-rose-600 text-white">
+          <div className="w-full pt-0 mt-0 navbar flex justify-between bg-rose-600 text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex-none lg:hidden">
@@ -64,7 +64,7 @@ const PageContainer = ({
                   <div>Swarna Lehenga</div>
                 </Link>
               </div>
-              <div className="lg:hidden flex mb-3 justify-center items-center w-[94vw]">
+              <div className="lg:hidden flex justify-center items-center w-[94vw]">
                 <input
                   type="text"
                   placeholder="Type here"
@@ -73,7 +73,7 @@ const PageContainer = ({
               </div>
             </div>
 
-            <div className="lg:flex hidden">
+            <div className="lg:flex hidden mt-2.5">
               <input
                 type="text"
                 placeholder="Type here"
@@ -124,7 +124,7 @@ const PageContainer = ({
             {/* shopping cart side */}
             <div
               ref={ref}
-              className="sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-rose-50 dark:bg-rose-400 transition-transform translate-x-full transform rounded-b-xl lg:h-[90vh] shadow-md z-10"
+              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-rose-50 dark:bg-rose-400 transition-transform transform translate-x-full translate-x-0'} rounded-b-xl lg:h-[90vh] shadow-md z-10`}
             >
               <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
@@ -164,10 +164,14 @@ const PageContainer = ({
                                     {cart[k].quantity}
                                   </span>
                                 </p>
-                                <p className="">{cart[k].price}</p>
+                                <p className="">
+                                  ${cart[k].price * cart[k].quantity}
+                                </p>
                               </div>
                               <div className="text-right">
-                                <p className="text-lg font-semibold">59.99€</p>
+                                <p className="text-lg font-semibold">
+                                  ${cart[k].price}
+                                </p>
                               </div>
                             </div>
                             <div className="flex text-lg divide-x">
@@ -242,7 +246,7 @@ const PageContainer = ({
                 <div className="space-y-1 text-right">
                   <p>
                     Total amount:
-                    <span className="font-semibold">357 €</span>
+                    <span className="font-semibold">${subTotal}</span>
                   </p>
                   {!Object.keys(cart).length == 0 && (
                     <p className="text-sm ">

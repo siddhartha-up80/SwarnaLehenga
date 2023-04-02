@@ -17,12 +17,14 @@ export default function App({ Component, pageProps }) {
     try {
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")));
+        saveCart(JSON.parse(localStorage.getItem("cart")));
       }
     } catch (error) {
       console.log(error);
       console.error(error);
       localStorage.clear();
     }
+    
   }, []);
 
   // save cart item to local storage
@@ -33,9 +35,12 @@ export default function App({ Component, pageProps }) {
     let subt = 0;
     let keys = Object.keys(myCart);
     for (let i = 0; i< keys.length; i++) {
-      subt += myCart[keys[i].price * myCart[keys[i]].quantity];
+      subt += myCart[keys[i]].price * myCart[keys[i]].quantity;
+      console.log(keys[i].price);
     }
     setSubTotal(subt);
+    // console.log(subTotal);
+    // console.log(myCart[keys[i].price * myCart[keys[i]].quantity]);
   };
 
   // add to cart function
