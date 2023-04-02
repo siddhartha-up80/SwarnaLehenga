@@ -4,22 +4,22 @@ import React from 'react'
 const Login = () => {
   return (
     <div>
-      <section class="min-h-screen flex items-stretch text-white ">
-        <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center bg-[url(https://source.unsplash.com/random/?saree)]">
-          <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-          <div class="w-full px-24 z-10">
-            <h1 class="text-5xl font-bold text-left tracking-wide">
+      <section className="min-h-screen flex items-stretch text-white ">
+        <div className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center bg-[url(https://source.unsplash.com/random/?saree)]">
+          <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
+          <div className="w-full px-24 z-10">
+            <h1 className="text-5xl font-bold text-left tracking-wide">
               Keep it special
             </h1>
-            <p class="text-3xl my-4">
+            <p className="text-3xl my-4">
               Capture your personal memory in unique way, anywhere.
             </p>
           </div>
         </div>
-        <div class="lg:w-1/2 w-full flex flex-col items-center justify-center text-center md:px-16 px-0 z-0 bg-pink-50">
+        <div className="lg:w-1/2 w-full flex flex-col items-center justify-center text-center md:px-16 px-0 z-0 bg-pink-50">
           {/* login component start */}
           <div
-            class="
+            className="
           flex flex-col
           bg-white
           shadow-md
@@ -33,25 +33,25 @@ const Login = () => {
           max-w-md
         "
           >
-            <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+            <div className="font-medium self-center text-xl sm:text-3xl text-gray-800">
               Login to your account
             </div>
-            <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+            <div className="mt-4 self-center text-xl sm:text-sm text-gray-800">
               Enter your credentials
             </div>
 
-            <div class="mt-10">
+            <div className="mt-10">
               <form action="#">
-                <div class="flex flex-col mb-5">
+                <div className="flex flex-col mb-5">
                   <label
-                    for="email"
-                    class="mb-1 text-xs tracking-wide text-gray-600"
+                    htmlFor="email"
+                    className="mb-1 text-xs tracking-wide text-gray-600"
                   >
                     E-Mail Address:
                   </label>
-                  <div class="relative">
+                  <div className="relative">
                     <div
-                      class="
+                      className="
                     inline-flex
                     items-center
                     justify-center
@@ -63,14 +63,14 @@ const Login = () => {
                     text-gray-400
                   "
                     >
-                      <i class="fas fa-at text-rose-500"></i>
+                      <i className="fas fa-at text-rose-500"></i>
                     </div>
 
                     <input
                       id="email"
                       type="email"
                       name="email"
-                      class="
+                      className="
                     text-sm
                     placeholder-gray-500
                     pl-10
@@ -86,16 +86,16 @@ const Login = () => {
                     />
                   </div>
                 </div>
-                <div class="flex flex-col mb-6">
+                <div className="flex flex-col mb-6">
                   <label
-                    for="password"
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    htmlFor="password"
+                    className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
                   >
                     Password:
                   </label>
-                  <div class="relative">
+                  <div className="relative">
                     <div
-                      class="
+                      className="
                     inline-flex
                     items-center
                     justify-center
@@ -108,7 +108,7 @@ const Login = () => {
                   "
                     >
                       <span>
-                        <i class="fas fa-lock text-rose-500"></i>
+                        <i className="fas fa-lock text-rose-500"></i>
                       </span>
                     </div>
 
@@ -116,7 +116,7 @@ const Login = () => {
                       id="password"
                       type="password"
                       name="password"
-                      class="
+                      className="
                     text-sm
                     placeholder-gray-500
                     pl-10
@@ -133,13 +133,13 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div class="flex w-full flex-col gap-4">
-                  <div class="text-xs ml-2 text-rose-500 font-semibold flex justify-end">
+                <div className="flex w-full flex-col gap-4">
+                  <Link href="/forgot" className="text-xs ml-2 text-rose-500 font-semibold flex justify-end">
                     Forgot Password ?
-                  </div>
+                  </Link>
                   <button
                     type="submit"
-                    class="
+                    className="
                   flex
                   
                   items-center
@@ -157,14 +157,14 @@ const Login = () => {
                   ease-in
                 "
                   >
-                    <span class="mr-2 uppercase">Sign In</span>
+                    <span className="mr-2 uppercase">Sign In</span>
                     <span>
                       <svg
-                        class="h-6 w-6"
+                        className="h-6 w-6"
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
@@ -176,10 +176,10 @@ const Login = () => {
               </form>
             </div>
           </div>
-          <div class="flex justify-center items-center mt-6">
+          <div className="flex justify-center items-center mt-6">
             <Link
               href="/signup"
-              class="
+              className="
             inline-flex
             items-center
             text-gray-700
@@ -187,9 +187,9 @@ const Login = () => {
             text-xs text-center
           "
             >
-              <span class="ml-2">
-                You don't have an account?
-                <div class="text-xs ml-2 text-rose-500 font-semibold">
+              <span className="ml-2">
+                Not having an account?
+                <div className="text-xs ml-2 text-rose-500 font-semibold">
                   Register now
                 </div>
               </span>

@@ -93,7 +93,7 @@ const Footer = ({ toggleCart }) => {
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
-            <Link href="/profile">
+            <Link href="/login">
               <PersonIcon className="text-2xl m-4"></PersonIcon>
             </Link>
 
