@@ -37,7 +37,7 @@ const PageContainer = ({
       <div className="drawer h-full dark:text-white ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full pt-0 mt-0 navbar flex justify-between bg-rose-600 text-white">
+          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex-none lg:hidden">
@@ -60,7 +60,7 @@ const PageContainer = ({
                     </svg>
                   </label>
                 </div>
-                <Link className="flex mt-2.5 text-lg" href="/">
+                <Link className="flex mt-2.5 ml-2 text-lg" href="/">
                   <div>Swarna Lehenga</div>
                 </Link>
               </div>
@@ -73,15 +73,15 @@ const PageContainer = ({
               </div>
             </div>
 
-            <div className="lg:flex hidden mt-2.5">
+            <div className="lg:flex hidden mt-2">
               <input
                 type="text"
                 placeholder="Type here"
-                className="input w-full lg:w-[30rem] text-black"
+                className="input w-full lg:w-[30rem] h-8 text-black"
               />
             </div>
             <div className="flex-none lg:flex hidden">
-              <div className="flex gap-5">
+              <div className="flex gap-5 mt-2.5">
                 <div className="dropdown dropdown-hover ">
                   <label tabIndex={0} className="flex gap-2">
                     <Link href="/categories">Categories</Link>
@@ -108,12 +108,12 @@ const PageContainer = ({
                   <BookmarkIcon className="mt-1"></BookmarkIcon>
                 </div>
                 <div className="flex gap-2">
-                  <Link href="/profile">Profile</Link>
+                  <Link href="/login">Profile</Link>
                   <PersonIcon className="mt-1"></PersonIcon>
                 </div>
               </div>
 
-              <div className="ml-8 mr-3 flex cursor-pointer">
+              <div className="ml-8 mr-3 flex cursor-pointer mt-2.5">
                 <ShoppingCartIcon
                   onClick={toggleCart}
                   className="text-2xl mr-2"

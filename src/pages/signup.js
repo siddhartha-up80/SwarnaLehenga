@@ -34,7 +34,7 @@ const Signup = () => {
         "
           >
             <div className="font-medium self-center text-xl sm:text-3xl text-gray-800">
-              Sign-up htmlFor your account
+              Sign-up for your account
             </div>
             <div className="mt-4 self-center text-xl sm:text-sm text-gray-800">
               Enter your credentials
@@ -42,6 +42,50 @@ const Signup = () => {
 
             <div className="mt-10">
               <form action="#">
+                <div className="flex flex-col mb-5">
+                  <label
+                    htmlFor="name"
+                    className="mb-1 text-xs tracking-wide text-gray-600"
+                  >
+                   Full Name:
+                  </label>
+                  <div className="relative">
+                    <div
+                      className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                    >
+                      <i className="fas fa-at text-rose-500"></i>
+                    </div>
+
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      className="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-rose-400
+                    bg-pink-50 text-black
+                  "
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                </div>
                 <div className="flex flex-col mb-5">
                   <label
                     htmlFor="email"

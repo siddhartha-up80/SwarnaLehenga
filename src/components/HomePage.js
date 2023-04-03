@@ -18,7 +18,7 @@ const HomePage = () => {
             <p className="mb-5 dark:text-white">
               The Ultimate Destination for Luxurious Indian Fashion
             </p>
-            <Link href="/lehenga">
+            <Link href="/saree">
               <button className="btn bg-rose-800 hover:bg-red-900 dark:text-white">
                 Get Started
               </button>
