@@ -34,13 +34,13 @@ const PageContainer = ({
   const ref = useRef();
   return (
     <div>
-      <div className="drawer h-full dark:text-white ">
+      <div className="drawer h-full dark:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
-                <div className="flex-none lg:hidden">
+                <div className="flex lg:hidden">
                   <label
                     htmlFor="my-drawer-3"
                     className="btn btn-square btn-ghost"
@@ -64,13 +64,13 @@ const PageContainer = ({
                   <div>Swarna Lehenga</div>
                 </Link>
               </div>
-              <div className="lg:hidden flex justify-center items-center w-[94vw]">
+              {/* <div className="lg:hidden flex justify-center items-center w-[94vw]">
                 <input
                   type="text"
                   placeholder="Type here"
                   className="input w-[94vw] flex h-10  text-black dark:bg-white"
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className="lg:flex hidden mt-2">
