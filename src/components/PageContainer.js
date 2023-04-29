@@ -37,7 +37,7 @@ const PageContainer = ({
       <div className="drawer h-full dark:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 text-white">
+          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 dark:bg-rose-900 md:dark:bg-gray-800  text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex lg:hidden">
@@ -77,7 +77,7 @@ const PageContainer = ({
               <input
                 type="text"
                 placeholder="Type here"
-                className="input w-full lg:w-[30rem] h-8 text-black"
+                className="input w-full lg:w-[30rem] h-8 text-black bg-white"
               />
             </div>
             <div className="flex-none lg:flex hidden">
@@ -90,7 +90,7 @@ const PageContainer = ({
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-rose-500 rounded-box w-[8rem]"
+                    className="dropdown-content menu p-2 shadow bg-rose-500 dark:bg-gray-500 rounded-box w-[8rem]"
                   >
                     <li>
                       <Link href="/lehenga">Lehenga</Link>
@@ -124,7 +124,7 @@ const PageContainer = ({
             {/* shopping cart side */}
             <div
               ref={ref}
-              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-rose-50 dark:bg-rose-400 transition-transform transform translate-x-full translate-x-0'} rounded-b-xl lg:h-[90vh] shadow-md z-10`}
+              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-rose-50 dark:bg-gray-800 dark:text-white transition-transform transform translate-x-full translate-x-0'} rounded-b-xl lg:h-[90vh] shadow-md z-10`}
             >
               <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
