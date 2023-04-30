@@ -19,5 +19,6 @@ Technologies Used
 - MongoDB: a NoSQL database used to store product information and customer data.
 - Express: a Node.js framework used to build the server-side API.
 - React: a JavaScript library used to build the user interface.
+- Tailwind: a utility-first open source CSS framework.
 - Next.js: a React-based framework used for server-side rendering.
 - Node.js: a JavaScript runtime used to execute server-side code.
