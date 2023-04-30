@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export default function App({ Component, pageProps }) {
   // to not display navbar page container component on homepage url/ :  {!isHomePage && ( .......
   const router = useRouter();
+
   const isHomePage = router.pathname === "/";
 
   // cart state
@@ -24,7 +25,6 @@ export default function App({ Component, pageProps }) {
       console.error(error);
       localStorage.clear();
     }
-    
   }, []);
 
   // save cart item to local storage
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
     // subtotal calculation
     let subt = 0;
     let keys = Object.keys(myCart);
-    for (let i = 0; i< keys.length; i++) {
+    for (let i = 0; i < keys.length; i++) {
       subt += myCart[keys[i]].price * myCart[keys[i]].quantity;
       console.log(keys[i].price);
     }
@@ -56,9 +56,22 @@ export default function App({ Component, pageProps }) {
     console.log("item added successfully");
   };
 
-  const test = () =>{
-      console.log("working properly");
-  }
+  const test = () => {
+    console.log("working properly");
+  };
+
+  // buynow button working
+  const buyNow = (itemCode, quantity, price, productName, size, variant) => {
+    let newCart = { itemCode: { quantity: 1, price, productName, size, variant } };
+
+    setCart(newCart);
+    saveCart(newCart);
+    saveCart(newCart);
+    console.log("item added successfully");
+
+    router.push("/checkout");
+  };
+
   // clear cart items
   const clearCart = () => {
     setCart({});
@@ -93,6 +106,7 @@ export default function App({ Component, pageProps }) {
         // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops
 
         <PageContainer
+          buyNow={buyNow}
           Component={Component}
           pageProps={pageProps}
           cart={cart}
@@ -104,6 +118,7 @@ export default function App({ Component, pageProps }) {
         >
           <Component
             {...pageProps}
+            buyNow={buyNow}
             cart={cart}
             addtoCart={addtoCart}
             removefromCart={removefromCart}
@@ -117,6 +132,7 @@ export default function App({ Component, pageProps }) {
       {isHomePage && (
         <Component
           {...pageProps}
+          buyNow={buyNow}
           cart={cart}
           addtoCart={addtoCart}
           removefromCart={removefromCart}
@@ -127,5 +143,4 @@ export default function App({ Component, pageProps }) {
       )}
     </>
   );
- 
 }

@@ -10,9 +10,12 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
     // console.log(subTotal);
   return (
     <>
-      <div className="bg-white">
-        <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
-          <a href="#" className="text-2xl font-bold text-rose-800">
+      <div className="dark:text-white">
+        <div className="flex flex-col items-center border-b py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
+          <a
+            href="#"
+            className="text-2xl font-bold text-rose-800 dark:text-white"
+          >
             checkout
           </a>
           <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
@@ -38,11 +41,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                       />
                     </svg>
                   </a>
-                  <span className="font-semibold text-rose-900">Shop</span>
+                  <span className="font-semibold text-rose-900 dark:text-white">
+                    Shop
+                  </span>
                 </li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-rose-400"
+                  className="h-4 w-4 text-rose-400 dark:text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -61,11 +66,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   >
                     2
                   </a>
-                  <span className="font-semibold text-rose-900">Shipping</span>
+                  <span className="font-semibold text-rose-900 dark:text-white">
+                    Shipping
+                  </span>
                 </li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-rose-400"
+                  className="h-4 w-4 text-rose-400 dark:text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -79,21 +86,23 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 </svg>
                 <li className="flex items-center space-x-3 text-left sm:space-x-4">
                   <a
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-400 text-xs font-semibold text-white"
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-400 text-xs font-semibold dark:text-white text-white"
                     href="#"
                   >
                     3
                   </a>
-                  <span className="font-semibold text-rose-500">Payment</span>
+                  <span className="font-semibold text-rose-500 dark:text-white">
+                    Payment
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="grid  lg:grid-cols-2 dark:text-rose-900">
-          <div className="md:mt-10 bg-rose-50 px-4 pt-8 lg:mt-0">
+        <div className="grid  lg:grid-cols-2 dark:text-white">
+          <div className="md:mt-10 px-4 pt-8 lg:mt-0">
             <p className="text-xl font-medium">Basic Details</p>
-            <p className="text-rose-400">
+            <p className="text-rose-400 dark:text-white">
               Provide your basic details and proceed further
             </p>
             <div className="">
@@ -108,13 +117,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   type="emial"
                   id="email"
                   name="email"
-                  className="w-full rounded-md border border-rose-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="your.email@gmail.com"
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-rose-400"
+                    className="h-4 w-4 text-rose-400 dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -139,7 +148,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full rounded-md border border-rose-200 px-4 py-3 pl-4 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border  px-4 py-3 pl-4 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="Your full name here"
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3"></div>
@@ -156,7 +165,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                     type="phone"
                     id="phone"
                     name="phone"
-                    className="w-full rounded-md border border-rose-200 px-2 py-3 pl-4 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full rounded-md border  px-2 py-3 pl-4 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                     placeholder=""
                   />
                 </div>
@@ -167,13 +176,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
               >
                 Address
               </label>
-              <div className="flex flex-col sm:flex-row">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <div className="relative flex-shrink-0 sm:w-7/12">
                   <input
                     type="text"
                     id="address"
                     name="address"
-                    className="w-full rounded-md border border-rose-200 px-4 py-3 pl-4 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full rounded-md border  px-4 py-3 pl-4 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                     placeholder="Address"
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3"></div>
@@ -181,20 +190,20 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 <select
                   type="text"
                   name="state"
-                  className="w-full rounded-md border border-rose-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 >
                   <option value="State">State</option>
                 </select>
                 <input
                   type="text"
                   name="city"
-                  className="flex-shrink-0 rounded-md border border-rose-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="flex-shrink-0 rounded-md border  px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="city"
                 />{" "}
                 <input
                   type="text"
                   name="pincode"
-                  className="flex-shrink-0 rounded-md border border-rose-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="flex-shrink-0 rounded-md border px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="pincode"
                 />
               </div>
@@ -203,9 +212,9 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
 
           {/* payment details */}
 
-          <div className="md:mt-10 mb-12 h-full bg-rose-50 px-4 pt-8 lg:mt-0">
+          <div className="md:mt-10 mb-12 h-full  px-4 pt-8 lg:mt-0">
             <p className="text-xl font-medium">Payment Details</p>
-            <p className="text-rose-400">
+            <p className="text-rose-400 dark:text-white">
               Complete your order by providing your payment details.
             </p>
             <div className="">
@@ -220,13 +229,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   type="text"
                   id="email"
                   name="email"
-                  className="w-full rounded-md border border-rose-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border  px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="your.email@gmail.com"
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-rose-400"
+                    className="h-4 w-4 text-rose-400 dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -251,13 +260,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   type="text"
                   id="card-holder"
                   name="card-holder"
-                  className="w-full rounded-md border border-rose-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border  px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="Your full name here"
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-rose-400"
+                    className="h-4 w-4 text-rose-400 dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -283,12 +292,12 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                     type="text"
                     id="card-no"
                     name="card-no"
-                    className="w-full rounded-md border border-rose-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full rounded-md border  px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                     placeholder="xxxx-xxxx-xxxx-xxxx"
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg
-                      className="h-4 w-4 text-rose-400"
+                      className="h-4 w-4 text-rose-400 dark:text-white"
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
@@ -303,13 +312,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 <input
                   type="text"
                   name="credit-expiry"
-                  className="w-full rounded-md border border-rose-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border  px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="MM/YY"
                 />
                 <input
                   type="text"
                   name="credit-cvc"
-                  className="w-1/6 flex-shrink-0 rounded-md border border-rose-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-1/6 flex-shrink-0 rounded-md border  px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="CVC"
                 />
               </div>
@@ -319,13 +328,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
               >
                 Billing Address
               </label>
-              <div className="flex flex-col sm:flex-row">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <div className="relative flex-shrink-0 sm:w-7/12">
                   <input
                     type="text"
                     id="billing-address"
                     name="billing-address"
-                    className="w-full rounded-md border border-rose-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full rounded-md border  px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                     placeholder="Street Address"
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -339,14 +348,14 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 <select
                   type="text"
                   name="billing-state"
-                  className="w-full rounded-md border border-rose-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border  px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 >
                   <option value="State">State</option>
                 </select>
                 <input
                   type="text"
                   name="billing-zip"
-                  className="flex-shrink-0 rounded-md border border-rose-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  className="flex-shrink-0 rounded-md border  px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="ZIP"
                 />
               </div>
@@ -356,7 +365,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
 
         <div className="mt-6 py-2 flex justify-center flex-wrap mb-14">
           {/* shopping cart review */}
-          <div className="sidebar bg-rose-50 dark:bg-rose-400 h-full w-full flex md:justify-center justify-between px-10 items-center flex-wrap">
+          <div className="sidebar h-full w-full flex md:justify-center justify-between px-10 items-center flex-wrap">
             <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark:text-white ">
               <h2 className="text-xl font-semibold">Your cart</h2>
               <ul className="flex flex-col divide-y divide-gray-300">
@@ -488,21 +497,31 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
               </div>
             </div>
 
-            <div>
+            <div className="mx-auto">
               <div>
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-rose-900">Subtotal</p>
-                  <p className="font-semibold text-rose-900">${subTotal}</p>
+                <div className="flex items-center justify-between ">
+                  <p className="text-sm font-medium text-rose-900 dark:text-white">
+                    Subtotal
+                  </p>
+                  <p className="font-semibold text-rose-900 dark:text-white">
+                    ${subTotal}
+                  </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-rose-900">Shipping</p>
-                  <p className="font-semibold text-rose-900">$8.00</p>
+                  <p className="text-sm font-medium text-rose-900 dark:text-white">
+                    Shipping
+                  </p>
+                  <p className="font-semibold text-rose-900 dark:text-white">
+                    $8.00
+                  </p>
                 </div>
               </div>
               <div>
                 <div className="">
-                  <p className="text-sm font-medium text-rose-900">Total</p>
-                  <p className="text-2xl font-semibold text-rose-900">
+                  <p className="text-sm font-medium text-rose-900 dark:text-white">
+                    Total
+                  </p>
+                  <p className="text-2xl font-semibold text-rose-900 dark:text-white">
                     ${subTotal !== 0 ? subTotal + 8 : 0}
                   </p>
                 </div>

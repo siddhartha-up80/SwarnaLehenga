@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
 
-// material ui icons 
+// material ui icons
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CategoryIcon from "@mui/icons-material/Category";
@@ -21,6 +21,7 @@ const PageContainer = ({
   clearCart,
   subTotal,
   test,
+  buyNow,
 }) => {
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
@@ -124,7 +125,7 @@ const PageContainer = ({
             {/* shopping cart side */}
             <div
               ref={ref}
-              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-rose-50 dark:bg-gray-800 dark:text-white transition-transform transform translate-x-full translate-x-0'} rounded-b-xl lg:h-[90vh] shadow-md z-10`}
+              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark:bg-rose-900 md:dark:bg-gray-700 dark:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-xl rounded-xl lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
             >
               <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
@@ -147,16 +148,17 @@ const PageContainer = ({
                         className="flex flex-col py-6 sm:flex-row sm:justify-between"
                       >
                         <div className="flex w-full space-x-2 sm:space-x-4">
-                          <img
+                          {/* <img
                             className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500"
                             src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
                             alt="Polaroid camera"
-                          />
+                          /> */}
                           <div className="flex flex-col justify-between w-full pb-4">
                             <div className="flex justify-between w-full pb-2 space-x-2">
                               <div className="space-y-1">
                                 <h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                                  {cart[k].productName}
+                                  <span>{cart[k].productName}</span>{" "}
+                                  <span>{cart[k].size}</span>
                                 </h3>
                                 <p className="">
                                   Items:{" "}
@@ -164,13 +166,11 @@ const PageContainer = ({
                                     {cart[k].quantity}
                                   </span>
                                 </p>
-                                <p className="">
-                                  ${cart[k].price * cart[k].quantity}
-                                </p>
+                                <p className="">₹{cart[k].price}</p>
                               </div>
                               <div className="text-right">
                                 <p className="text-lg font-semibold">
-                                  ${cart[k].price}
+                                  ₹{cart[k].price * cart[k].quantity}
                                 </p>
                               </div>
                             </div>
@@ -246,7 +246,7 @@ const PageContainer = ({
                 <div className="space-y-1 text-right">
                   <p>
                     Total amount:
-                    <span className="font-semibold">${subTotal}</span>
+                    <span className="">₹{subTotal}</span>
                   </p>
                   {!Object.keys(cart).length == 0 && (
                     <p className="text-sm ">
@@ -257,7 +257,7 @@ const PageContainer = ({
                 <div className="flex justify-end space-x-4">
                   <button
                     type="button"
-                    className="px-6 py-2 border rounded-md border-rose-600"
+                    className="px-6 py-2 border rounded-md border-rose-600 dark:bg-white dark:text-black"
                     onClick={toggleCart}
                   >
                     Back <span className="sr-only sm:not-sr-only">to shop</span>
@@ -266,13 +266,13 @@ const PageContainer = ({
                   {!Object.keys(cart).length == 0 && (
                     <button
                       type="button"
-                      className="px-6 py-2 border rounded-md border-rose-600"
+                      className="px-6 py-2 border rounded-md border-rose-600 dark:bg-white dark:text-black"
                       onClick={() => {
                         clearCart();
                         setTimeout(() => toggleCart(), 500);
                       }}
                     >
-                      <span className="text-black">
+                      <span className="">
                         <DeleteOutlineIcon></DeleteOutlineIcon>
                       </span>
                     </button>
@@ -307,6 +307,7 @@ const PageContainer = ({
               clearCart={clearCart}
               subTotal={subTotal}
               test={test}
+              buyNow={buyNow}
             ></Component>
           </div>
           {/* end of page content */}

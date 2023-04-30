@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 const Saree = ({ products }) => {
   return (
     <div>
-      <section className="pt-5 pb-12 text-gray-700 dark:text-white sm:py-16 md:py-10 h-screen">
+      <section className="pt-5 pb-20 mb-20 text-gray-700 dark:text-white sm:py-16 md:py-10 h-screen">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
             <h2 className=" text-2xl font-bold sm:text-3xl">
@@ -35,13 +35,16 @@ const Saree = ({ products }) => {
                         Sale
                       </p>
                     </div>
-                    <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                      <div className="flex font-semibold text-sm">
-                        {products[item].title}
+                    <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between h-max">
+                      <div className="h-[6rem]">
+                        <div className="flex font-semibold text-sm">
+                          {products[item].title}
+                        </div>
+                        <h3 className="mb-2 text-sm text-gray-400">
+                          {`${products[item].desc.slice(0, 30)}...`}
+                        </h3>
                       </div>
-                      <h3 className="mb-2 text-sm text-gray-400">
-                        {products[item].desc}
-                      </h3>
+
                       <div className="mb-2 flex">
                         <del className="text-xs mr-3 text-gray-400">
                           ₹799.00{" "}
