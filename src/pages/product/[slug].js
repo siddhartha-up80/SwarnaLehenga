@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import mongoose from "mongoose";
 import Product from "@/models/Product";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Slug = ({ buyNow, product, variants, addtoCart }) => {
   const router = useRouter();
@@ -10,12 +12,33 @@ const Slug = ({ buyNow, product, variants, addtoCart }) => {
   const [pin, setPin] = useState();
   const [service, setService] = useState();
   const checkPincode = async () => {
+  
     let pins = await fetch("http://localhost:3000/api/pincode");
     let pinJson = await pins.json();
     if (pinJson.includes(parseInt(pin))) {
       setService(true);
+      toast.success("Available", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       setService(false);
+        toast.error("Not Available", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
     }
   };
 
@@ -31,11 +54,23 @@ const Slug = ({ buyNow, product, variants, addtoCart }) => {
     window.location = url;
   };
 
- 
-
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden dark:text-white">
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
         <div className="container px-5 py-5 pb-20 md:py-20 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
@@ -251,6 +286,16 @@ const Slug = ({ buyNow, product, variants, addtoCart }) => {
                 <button
                   className="flex ml-auto text-white bg-rose-500 dark:bg-rose-800 border-0 py-2 px-6 focus:outline-none hover:bg-rose-600 rounded"
                   onClick={() => {
+                    toast.success("Added To Cart", {
+                      position: "top-right",
+                      autoClose: 1000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "light",
+                    });
                     addtoCart(
                       slug,
                       1,
@@ -313,7 +358,7 @@ export async function getServerSideProps(context) {
   }
   // console.log(process.env.MONGO_URI);
   let product = await Product.findOne({ slug: context.query.slug });
-  let variants = await Product.find({ title: product.title });
+  let variants = await Product.find({ title: product.title, category: product.category });
 
   let colorSizeSlug = {};
   for (let item of variants) {

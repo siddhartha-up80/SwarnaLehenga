@@ -16,6 +16,11 @@ const Saree = ({ products }) => {
           </div>
           <div className="">
             <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 md:mt-10">
+              {Object.keys(products).length === 0 && (
+                <div>
+                  <p>Currently Out Of Stock. Stay Tuned!</p>
+                </div>
+              )}
               {Object.keys(products).map((item) => {
                 return (
                   <Link

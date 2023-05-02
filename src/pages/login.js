@@ -16,7 +16,7 @@ const Login = () => {
             </p>
           </div>
         </div>
-        <div className="lg:w-1/2 w-full flex flex-col items-center justify-center text-center md:px-16 px-0 z-0 bg-pink-50">
+        <div className="lg:w-1/2 w-full flex flex-col items-center justify-center text-center md:px-16 px-0 z-0 ">
           {/* login component start */}
           <div
             className="
@@ -182,12 +182,12 @@ const Login = () => {
               className="
             inline-flex
             items-center
-            text-gray-700
+           
             font-medium
             text-xs text-center
           "
             >
-              <span className="ml-2">
+              <span className="ml-2 text-rose-400">
                 Not having an account?
                 <div className="text-xs ml-2 text-rose-500 font-semibold">
                   Register now

@@ -1,240 +1,146 @@
-import React from 'react'
+import React from "react";
+import Link from "next/link";
+import Product from "@/models/Product";
+import connectDb from "@/middleware/mongoose";
+import mongoose from "mongoose";
 
-const Lehenga = () => {
+const Lehenga = ({ products }) => {
   return (
     <div>
-      <section className="bg-white pt-5 pb-12 text-gray-700 sm:py-16 md:py-10">
+      <section className="pt-5 pb-20 mb-20 text-gray-700 dark:text-white sm:py-16 md:py-10 h-screen">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
             <h2 className=" text-2xl font-bold sm:text-3xl">
               Step into the Elegance
             </h2>
           </div>
-
-          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 md:mt-10">
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=1"
-                  alt=""
-                />
-              </div>
-              <div className="absolute top-0 m-2 rounded-full bg-white">
-                <p className="rounded-full bg-rose-500 p-1 text-[8px] font-bold uppercase tracking-wide text-white sm:py-1 sm:px-3">
-                  Sale
-                </p>
-              </div>
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
+          <div className="">
+            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 md:mt-10">
+              {Object.keys(products).length === 0 && (
+                <div>
+                  <p>Currently Out Of Stock. Stay Tuned!</p>
                 </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
+              )}
+              {Object.keys(products).map((item) => {
+                return (
+                  <Link
+                    key={products[item]._id}
+                    href={`/product/${products[item].slug}`}
+                    className="relative flex flex-col overflow-hidden rounded-lg border"
+                  >
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
+                        src={`${products[item].img}=${products[item]._id}`}
+                        alt=""
+                      />
+                    </div>
+                    <div className="absolute top-0 m-2 rounded-full bg-white">
+                      <p className="rounded-full bg-rose-500 p-1 text-[8px] font-bold uppercase tracking-wide text-white sm:py-1 sm:px-3">
+                        Sale
+                      </p>
+                    </div>
+                    <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between h-max">
+                      <div className="h-[6rem]">
+                        <div className="flex font-semibold text-sm">
+                          {products[item].title}
+                        </div>
+                        <h3 className="mb-2 text-sm text-gray-400">
+                          {`${products[item].desc.slice(0, 30)}...`}
+                        </h3>
+                      </div>
+
+                      <div className="mb-2 flex">
+                        <del className="text-xs mr-3 text-gray-400">
+                          ₹799.00{" "}
+                        </del>
+                        <p className="mr-3 text-xs font-semibold">
+                          ₹{item.price}
+                        </p>
+                        <p className=" text-xs text-green-500 font-semibold">
+                          84% off
+                        </p>
+                      </div>
+                      <div className="sizes mt-1">
+                        {products[item].size.includes("S") && (
+                          <span className="border  rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                            S
+                          </span>
+                        )}
+                        {products[item].size.includes("M") && (
+                          <span className="border  rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                            M
+                          </span>
+                        )}
+                        {products[item].size.includes("L") && (
+                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                            L
+                          </span>
+                        )}
+                        {products[item].size.includes("XL") && (
+                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                            XL
+                          </span>
+                        )}
+                        {products[item].size.includes("XXL") && (
+                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                            XXL
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    {/* <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
                 <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
                   Add
                 </div>
                 <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
                   +
                 </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=2"
-                  alt=""
-                />
-              </div>
-              <div className="absolute top-0 m-2 rounded-full bg-white">
-                <p className="rounded-full bg-rose-500 p-1 text-[8px] font-bold uppercase tracking-wide text-white sm:py-1 sm:px-3">
-                  Sale
-                </p>
-              </div>
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=3"
-                  alt=""
-                />
-              </div>
-
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=4"
-                  alt=""
-                />
-              </div>
-
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=5"
-                  alt=""
-                />
-              </div>
-
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=6"
-                  alt=""
-                />
-              </div>
-
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=7"
-                />
-              </div>
-
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
-
-            <article className="relative flex flex-col overflow-hidden rounded-lg border">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                  src="https://source.unsplash.com/random/1080×1920/?saree,lehenga=8"
-                  alt=""
-                />
-              </div>
-              <div className="absolute top-0 m-2 rounded-full bg-white">
-                <p className="rounded-full bg-rose-500 p-1 text-[8px] font-bold uppercase tracking-wide text-white sm:py-1 sm:px-3">
-                  Sale
-                </p>
-              </div>
-              <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                <div className="mb-2 flex">
-                  <p className="mr-3 text-sm font-semibold">$99.00</p>
-                  <del className="text-xs text-gray-400"> $79.00 </del>
-                </div>
-                <h3 className="mb-2 text-sm text-gray-400">Latest Trending</h3>
-              </div>
-              <button className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-                <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-rose-600 group-hover:text-white">
-                  Add
-                </div>
-                <div className="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-rose-500 group-hover:text-white">
-                  +
-                </div>
-              </button>
-            </article>
+              </button> */}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
     </div>
   );
+};
+
+export async function getServerSideProps(context) {
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect(process.env.MONGO_URI);
+  }
+  // console.log(process.env.MONGO_URI);
+  let products = await Product.find({ category: "lehenga" });
+  let lehenga = {};
+  for (let item of products) {
+    if (item.title in lehenga) {
+      if (
+        !lehenga[item.title].color.includes(item.color) &&
+        item.availableQty > 0
+      ) {
+        lehenga[item.title].color.push(item.color);
+      }
+      if (
+        !lehenga[item.title].size.includes(item.size) &&
+        item.availableQty > 0
+      ) {
+        lehenga[item.title].size.push(item.size);
+      }
+    } else {
+      lehenga[item.title] = JSON.parse(JSON.stringify(item));
+      if (item.availableQty > 0) {
+        lehenga[item.title].color = [item.color];
+        lehenga[item.title].size = [item.size];
+      }
+    }
+  }
+
+  return {
+    props: { products: JSON.parse(JSON.stringify(lehenga)) },
+  };
 }
 
-export default Lehenga
+export default Lehenga;
