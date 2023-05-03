@@ -1,10 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import {toast, ToastContainer } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const handleChange = (e) => {
+    if (e.target.name == "name") {
+      setName(e.target.value);
+    } else if (e.target.name == "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name == "password") {
+      setPassword(e.target.value);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { name, email, password };
+    let res = await fetch("http://localhost:3000/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    let response = await res.json();
+    console.log(response);
+
+    setEmail("");
+    setName("");
+    setPassword("");
+    toast.success("Your Account has been created, Step Into the Elegance!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   return (
     <div>
       <section className="min-h-screen flex items-stretch text-white ">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
         <div className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center bg-[url(https://source.unsplash.com/random/?saree,indian)]">
           <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
           <div className="w-full px-24 z-10">
@@ -16,7 +74,7 @@ const Signup = () => {
             </p>
           </div>
         </div>
-        <div className="lg:w-1/2 w-full flex flex-col items-center justify-center text-center md:px-16 px-0 z-0 bg-pink-50">
+        <div className="lg:w-1/2 w-full flex flex-col items-center justify-center text-center md:px-16 px-0 z-0 ">
           {/* signup component start */}
           <div
             className="
@@ -41,13 +99,13 @@ const Signup = () => {
             </div>
 
             <div className="mt-10">
-              <form action="#">
+              <form onSubmit={handleSubmit}>
                 <div className="flex flex-col mb-5">
                   <label
                     htmlFor="name"
                     className="mb-1 text-xs tracking-wide text-gray-600"
                   >
-                   Full Name:
+                    Full Name:
                   </label>
                   <div className="relative">
                     <div
@@ -82,6 +140,8 @@ const Signup = () => {
                     focus:outline-none focus:border-rose-400
                     bg-pink-50 text-black
                   "
+                      value={name}
+                      onChange={handleChange}
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -126,7 +186,9 @@ const Signup = () => {
                     focus:outline-none focus:border-rose-400
                     bg-pink-50 text-black
                   "
+                      value={email}
                       placeholder="Enter your email"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -172,6 +234,8 @@ const Signup = () => {
                     focus:outline-none focus:border-rose-400
                     bg-pink-50 text-black
                   "
+                      value={password}
+                      onChange={handleChange}
                       placeholder="create your password"
                     />
                   </div>
@@ -223,7 +287,7 @@ const Signup = () => {
               className="
             inline-flex
             items-center
-            text-gray-700
+            text-rose-700
             font-medium
             text-xs text-center
           "
