@@ -12,6 +12,8 @@ export default function App({ Component, pageProps }) {
   // cart state
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
+  const [user, setUser] = useState({ value: null });
+  const [key, setKey] = useState(0)
 
   // to get cart from local storage and update it
   useEffect(() => {
@@ -25,7 +27,13 @@ export default function App({ Component, pageProps }) {
       console.error(error);
       localStorage.clear();
     }
-  }, []);
+
+    const token = localStorage.getItem("token");
+    if (token) {
+      setUser({ value: token });
+      setKey(Math.random())
+    }
+  }, [router.query]);
 
   // save cart item to local storage
   const saveCart = (myCart) => {
@@ -62,7 +70,9 @@ export default function App({ Component, pageProps }) {
 
   // buynow button working
   const buyNow = (itemCode, quantity, price, productName, size, variant) => {
-    let newCart = { itemCode: { quantity: 1, price, productName, size, variant } };
+    let newCart = {
+      itemCode: { quantity: 1, price, productName, size, variant },
+    };
 
     setCart(newCart);
     saveCart(newCart);
@@ -100,6 +110,13 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
   };
 
+
+  const logout = ()=>{
+      localStorage.removeItem("token")
+      setUser({value: null})
+      setKey(Math.random())
+  }
+
   return (
     <>
       {!isHomePage && (
@@ -115,6 +132,9 @@ export default function App({ Component, pageProps }) {
           clearCart={clearCart}
           subTotal={subTotal}
           test={test}
+          key={key}
+          user={user}
+          logout={logout}
         >
           <Component
             {...pageProps}
@@ -125,6 +145,9 @@ export default function App({ Component, pageProps }) {
             clearCart={clearCart}
             subTotal={subTotal}
             test={test}
+            key={key}
+            user={user}
+            logout={logout}
           />
         </PageContainer>
       )}
@@ -139,6 +162,9 @@ export default function App({ Component, pageProps }) {
           clearCart={clearCart}
           subTotal={subTotal}
           test={test}
+          key={key}
+          user={user}
+          logout={logout}
         />
       )}
     </>

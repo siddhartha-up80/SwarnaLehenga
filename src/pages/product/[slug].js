@@ -358,6 +358,7 @@ export async function getServerSideProps(context) {
       "mongodb+srv://rebel:7017614925@cluster0.ihexdsa.mongodb.net/?retryWrites=true&w=majority"
     );
   }
+  
   // console.log(process.env.MONGO_URI);
   let product = await Product.findOne({ slug: context.query.slug });
   let variants = await Product.find({ title: product.title, category: product.category });

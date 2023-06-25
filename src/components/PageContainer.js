@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
 
@@ -11,6 +11,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { set } from "mongoose";
 
 const PageContainer = ({
   Component,
@@ -22,7 +23,15 @@ const PageContainer = ({
   subTotal,
   test,
   buyNow,
+  user,
+  key,
+  logout
 }) => {
+  const [dropdown, setDropdown] = useState(false);
+  const toggleDropdown = () => {
+    setDropdown(!dropdown);
+  };
+
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -108,10 +117,40 @@ const PageContainer = ({
                   <Link href="/favourite">Favourite</Link>
                   <BookmarkIcon className="mt-1"></BookmarkIcon>
                 </div>
-                <div className="flex gap-2">
-                  <Link href="/login">Profile</Link>
-                  <PersonIcon className="mt-1"></PersonIcon>
-                </div>
+                {user.value && (
+                  <div
+                    className="cursor-pointer"
+                    onMouseOver={toggleDropdown}
+                    onMouseLeave={toggleDropdown}
+                  >
+                    <div className="dropdown dropdown-hover">
+                      <span>User</span>
+
+                      <PersonIcon className="mt-1"></PersonIcon>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content menu shadow bg-rose-500 dark:bg-gray-500 rounded-box absolute w-[8rem]"
+                      >
+                        <li>
+                          <Link href="/profile">Account</Link>
+                        </li>
+                        <li>
+                          <Link href="/order">Orders</Link>
+                        </li>
+                        <li>
+                          <span onClick={logout}>Logout</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                {!user.value && (
+                  <div className="flex gap-2">
+                    <Link href="/login">
+                      <button className="px-2 font-bold">Login</button>
+                    </Link>
+                  </div>
+                )}
               </div>
 
               <div className="ml-8 mr-3 flex cursor-pointer mt-2.5">

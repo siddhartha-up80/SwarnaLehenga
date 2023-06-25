@@ -1,10 +1,85 @@
-import Link from 'next/link';
-import React from 'react'
+import React, { useState } from "react";
+import Link from "next/link";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const handleChange = (e) => {
+    if (e.target.name == "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name == "password") {
+      setPassword(e.target.value);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { email, password };
+    let res = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    let response = await res.json();
+    console.log(response);
+
+    setEmail("");
+
+    setPassword("");
+    if (response.success) {
+      localStorage.setItem("token", response.token)
+      toast.success("You are successfully logged in, Step Into the Elegance!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+      setTimeout(() => {
+        router.push("http://localhost:3000/saree");
+      }, 1000);
+    } else {
+      toast.error(response.error, {
+        position: "top-right", 
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+
   return (
     <div>
       <section className="min-h-screen flex items-stretch text-white ">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
         <div className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center bg-[url(https://source.unsplash.com/random/?saree)]">
           <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
           <div className="w-full px-24 z-10">
@@ -41,7 +116,7 @@ const Login = () => {
             </div>
 
             <div className="mt-10">
-              <form action="#">
+              <form onSubmit={handleSubmit}>
                 <div className="flex flex-col mb-5">
                   <label
                     htmlFor="email"
@@ -82,6 +157,8 @@ const Login = () => {
                     focus:outline-none focus:border-rose-400
                     bg-pink-50 text-black
                   "
+                      value={email}
+                      onChange={handleChange}
                       placeholder="Enter your email"
                     />
                   </div>
@@ -128,13 +205,18 @@ const Login = () => {
                     focus:outline-none focus:border-rose-400
                     bg-pink-50 text-black
                   "
+                      value={password}
+                      onChange={handleChange}
                       placeholder="Enter your password"
                     />
                   </div>
                 </div>
 
                 <div className="flex w-full flex-col gap-4">
-                  <Link href="/forgot" className="text-xs ml-2 text-rose-500 font-semibold flex justify-end">
+                  <Link
+                    href="/forgot"
+                    className="text-xs ml-2 text-rose-500 font-semibold flex justify-end"
+                  >
                     Forgot Password ?
                   </Link>
                   <button
@@ -201,6 +283,6 @@ const Login = () => {
       </section>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;
