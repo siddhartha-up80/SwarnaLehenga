@@ -110,7 +110,9 @@ const Kurti = ({ products }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(
+      "mongodb+srv://rebel:7017614925@cluster0.ihexdsa.mongodb.net/?retryWrites=true&w=majority"
+    );
   }
   // console.log(process.env.MONGO_URI);
   let products = await Product.find({ category: "kurti" });
