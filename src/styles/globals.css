@@ -1,6 +1,6 @@
-/* @media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 } */
 
@@ -14,18 +14,29 @@ body {
   
 }
 
-@media (prefers-color-scheme: dark) {
+
+:root {
+  color-scheme: only light;
+}
+
+@media (forced-colors: active) {
+    :root {
+        color-scheme: light;
+    }
+}
+
+/* @media (prefers-color-scheme: dark) {
   
   body {
     background-color: rgb(17, 15, 15);
     
   }
-}
+} */
 
 /* body{
   background-color: rgb(255, 250, 247);
 } */
 
-/* :root {
+:root {
   color-scheme: only light;
-} */
+}
