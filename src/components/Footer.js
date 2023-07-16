@@ -20,7 +20,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5  hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/">
-              <HomeIcon className="text-2xl m-4"></HomeIcon>
+              <HomeIcon className="text-2xl m-4 text-white"></HomeIcon>
             </Link>
             <span className="sr-only">Home</span>
           </button>
@@ -38,7 +38,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/categories">
-              <CategoryIcon className="text-2xl m-4"></CategoryIcon>
+              <CategoryIcon className="text-2xl  text-white"></CategoryIcon>
             </Link>
 
             <span className="sr-only">Wallet</span>
@@ -58,7 +58,7 @@ const Footer = ({ toggleCart }) => {
               className="inline-flex items-center justify-center w-12 h-12 font-medium dark:bg-rose-800 bg-rose-600  rounded-full hover:bg-rose-500 group focus:ring-4 focus:ring-rose-300 focus:outline-none dark:focus:ring-rose-700"
               onClick={toggleCart}
             >
-              <ShoppingCartIcon className="text-2xl m-2"></ShoppingCartIcon>
+              <ShoppingCartIcon className="text-2xl m-2 text-white"></ShoppingCartIcon>
             </button>
           </div>
           <div
@@ -75,7 +75,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/favourite">
-              <BookmarkIcon className="text-2xl m-4"></BookmarkIcon>
+              <BookmarkIcon className="text-2xl  text-white"></BookmarkIcon>
             </Link>
 
             <span className="sr-only">Settings</span>
@@ -94,7 +94,7 @@ const Footer = ({ toggleCart }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/login">
-              <PersonIcon className="text-2xl m-4"></PersonIcon>
+              <PersonIcon className="text-2xl  text-white"></PersonIcon>
             </Link>
 
             <span className="sr-only">Profile</span>

@@ -47,7 +47,7 @@ const PageContainer = ({
       <div className="drawer h-full dark1:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
+          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-800 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex lg:hidden">

@@ -3,10 +3,13 @@ import Link from "next/link";
 import Product from "@/models/Product";
 import connectDb from "@/middleware/mongoose";
 import mongoose from "mongoose";
+import Loading from "@/components/loading/loading";
+
 
 const Saree = ({ products }) => {
   return (
     <div>
+      {!products && <div><Loading/></div>}
       <section className="pt-5 pb-20 mb-20 text-gray-700  sm:py-16 md:py-10 h-screen">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
