@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import PageContainer from "@/components/PageContainer";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import LoadingBar from "react-top-loading-bar";
 
 export default function App({ Component, pageProps }) {
   // to not display navbar page container component on homepage url/ :  {!isHomePage && ( .......
@@ -13,10 +14,19 @@ export default function App({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
-  const [key, setKey] = useState(0)
+  const [key, setKey] = useState();
+  const [progress, setProgress] = useState(0);
 
   // to get cart from local storage and update it
   useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setProgress(40);
+    });
+
+    router.events.on("routeChangeComplete", () => {
+      setProgress(100);
+    });
+
     try {
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")));
@@ -31,7 +41,7 @@ export default function App({ Component, pageProps }) {
     const token = localStorage.getItem("token");
     if (token) {
       setUser({ value: token });
-      setKey(Math.random())
+      setKey(Math.random());
     }
   }, [router.query]);
 
@@ -110,46 +120,58 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
   };
 
-
-  const logout = ()=>{
-      localStorage.removeItem("token")
-      setUser({value: null})
-      setKey(Math.random())
-  }
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser({ value: null });
+    setKey(Math.random());
+    router.push("/");
+  };
 
   return (
     <>
       {!isHomePage && (
         // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops
-
-        <PageContainer
-          buyNow={buyNow}
-          Component={Component}
-          pageProps={pageProps}
-          cart={cart}
-          addtoCart={addtoCart}
-          removefromCart={removefromCart}
-          clearCart={clearCart}
-          subTotal={subTotal}
-          test={test}
-          key={key}
-          user={user}
-          logout={logout}
-        >
-          <Component
-            {...pageProps}
-            buyNow={buyNow}
-            cart={cart}
-            addtoCart={addtoCart}
-            removefromCart={removefromCart}
-            clearCart={clearCart}
-            subTotal={subTotal}
-            test={test}
-            key={key}
-            user={user}
-            logout={logout}
+        <>
+          <LoadingBar
+            color="#fff"
+            progress={progress}
+            waitingTime={400}
+            onLoaderFinished={() => setProgress(0)}
           />
-        </PageContainer>
+          {key && (
+            <div>
+              {" "}
+              <PageContainer
+                buyNow={buyNow}
+                Component={Component}
+                pageProps={pageProps}
+                cart={cart}
+                addtoCart={addtoCart}
+                removefromCart={removefromCart}
+                clearCart={clearCart}
+                subTotal={subTotal}
+                test={test}
+                key={key}
+                user={user}
+                logout={logout}
+              >
+                <Component
+                  {...pageProps}
+                  buyNow={buyNow}
+                  cart={cart}
+                  addtoCart={addtoCart}
+                  removefromCart={removefromCart}
+                  clearCart={clearCart}
+                  subTotal={subTotal}
+                  test={test}
+                  key={key}
+                  user={user}
+                  logout={logout}
+                />
+              </PageContainer>
+            </div>
+          )}
+        </>
       )}
 
       {isHomePage && (

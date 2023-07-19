@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
+import FooterDesktop from "./FooterDesktop";
 
 // material ui icons
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -25,7 +26,7 @@ const PageContainer = ({
   buyNow,
   user,
   key,
-  logout
+  logout,
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const toggleDropdown = () => {
@@ -70,9 +71,17 @@ const PageContainer = ({
                     </svg>
                   </label>
                 </div>
-                <Link className="flex mt-2.5 ml-2 text-lg" href="/">
+                <div className="h-8 w-8 my-2 md:ml-2 md:mr-0 mr-1">
+                  <img
+                    className="h-full w-full bg-cover bg-center object-cover rounded-md"
+                    src="https://images.unsplash.com/photo-1551726824-bbeab11db685?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+                    alt=""
+                  />
+                </div>
+                <Link className="flex mt-2.5 ml-2 text-lg font-semibold" href="/">
                   <div>Swarna Lehenga</div>
                 </Link>
+                
               </div>
               {/* <div className="lg:hidden flex justify-center items-center w-[94vw]">
                 <input
@@ -87,15 +96,20 @@ const PageContainer = ({
               <input
                 type="text"
                 placeholder="Type here"
-                className="input w-full lg:w-[30rem] h-8 text-black bg-white"
+                className="input w-full lg:w-[30rem] h-8 text-black bg-white rounded-sm"
               />
             </div>
             <div className="flex-none lg:flex hidden">
               <div className="flex gap-5 mt-2.5">
                 <div className="dropdown dropdown-hover ">
-                  <label tabIndex={0} className="flex gap-2">
-                    <Link href="/categories">Categories</Link>
-                    <CategoryIcon className="mt-1"></CategoryIcon>
+                  <label tabIndex={0} className="flex gap-2 ">
+                    <Link href="/categories" className="text-sm font-bold mt-1">
+                      Categories
+                    </Link>
+                    <CategoryIcon
+                      className="mt-1"
+                      style={{ width: "18px", height: "18px" }}
+                    ></CategoryIcon>
                   </label>
 
                   <ul
@@ -103,19 +117,30 @@ const PageContainer = ({
                     className="dropdown-content menu p-2 shadow bg-rose-500 dark1:bg-gray-500 rounded-box w-[8rem]"
                   >
                     <li>
-                      <Link href="/lehenga">Lehenga</Link>
+                      <Link href="/lehenga" className="text-sm ">
+                        Lehenga
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/saree">Saree</Link>
+                      <Link href="/saree" className="text-sm ">
+                        Saree
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/kurti">Kurti</Link>
+                      <Link href="/kurti" className="text-sm ">
+                        Kurti
+                      </Link>
                     </li>
                   </ul>
                 </div>
                 <div className="flex gap-2">
-                  <Link href="/favourite">Favourite</Link>
-                  <BookmarkIcon className="mt-1"></BookmarkIcon>
+                  <Link href="/favourite" className="text-sm font-bold mt-1">
+                    Favourite
+                  </Link>
+                  <BookmarkIcon
+                    className="mt-1"
+                    style={{ width: "18px", height: "18px" }}
+                  ></BookmarkIcon>
                 </div>
                 {user.value && (
                   <div
@@ -124,18 +149,21 @@ const PageContainer = ({
                     onMouseLeave={toggleDropdown}
                   >
                     <div className="dropdown dropdown-hover">
-                      <span>User</span>
+                      <span className="text-sm font-bold">User</span>
 
-                      <PersonIcon className="mt-1"></PersonIcon>
+                      <PersonIcon
+                        className="ml-2"
+                        style={{ width: "20px", height: "20px" }}
+                      ></PersonIcon>
                       <ul
                         tabIndex={0}
                         className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"
                       >
                         <li>
-                          <Link href="/profile">Account</Link>
+                          <Link href="/myaccount">Account</Link>
                         </li>
                         <li>
-                          <Link href="/order">Orders</Link>
+                          <Link href="/orders">Orders</Link>
                         </li>
                         <li>
                           <span onClick={logout}>Logout</span>
@@ -353,7 +381,12 @@ const PageContainer = ({
 
           {/* bottom navigation */}
           <div className="">
-            <Footer toggleCart={toggleCart}></Footer>
+            <Footer
+              toggleCart={toggleCart}
+              user={user}
+              logout={logout}
+            ></Footer>
+            <FooterDesktop />
           </div>
           {/* end of bottom navigation */}
         </div>
@@ -369,6 +402,28 @@ const PageContainer = ({
             <li>
               <Link href="/kurti">Kurti</Link>
             </li>
+
+            {user.value && (
+              <>
+                <li>
+                  <Link href="/myaccount">Account</Link>
+                </li>
+                <li>
+                  <Link href="/orders">Orders</Link>
+                </li>
+                <li>
+                  <span onClick={logout}>Logout</span>
+                </li>
+              </>
+            )}
+
+            {!user.value && (
+              <div className="flex gap-2">
+                <Link href="/login">
+                  <button className="px-2 font-bold">Login</button>
+                </Link>
+              </div>
+            )}
           </ul>
         </div>
       </div>

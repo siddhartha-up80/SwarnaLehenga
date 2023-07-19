@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Loading from "./loading/loading";
+import Loading from "./loading/Loading";
 
 const HomePage = () => {
   const [loading, setLoading] = useState("hidden");

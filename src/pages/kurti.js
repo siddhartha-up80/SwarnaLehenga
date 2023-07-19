@@ -3,7 +3,7 @@ import Link from "next/link";
 import Product from "@/models/Product";
 import connectDb from "@/middleware/mongoose";
 import mongoose from "mongoose";
-import Loading from "@/components/loading/loading";
+import Loading from "@/components/loading/Loading";
 
 const Kurti = ({ products }) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from '@/components/loading/loading';
+import Loading from '@/components/loading/Loading';
 
 const Favourite = () => {
   return (
