@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const forgot = () => {
+const Forgot = () => {
    const router = useRouter();
    
    useEffect(() => {
@@ -210,4 +210,4 @@ const forgot = () => {
   );
 }
 
-export default forgot
+export default Forgot
