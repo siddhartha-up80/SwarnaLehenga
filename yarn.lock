@@ -2473,6 +2473,11 @@
   "resolved" "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   "version" "4.0.0"
 
+"paytmchecksum@^1.5.0":
+  "integrity" "sha512-TQZn/YKEJ6P+OwJGmKXMKkkgUA0VxDISPcQTKre9ZWVLjp7EzVjB+ITGSChnAUpMn23QXCgAXO8JQDVncqcA5w=="
+  "resolved" "https://registry.npmjs.org/paytmchecksum/-/paytmchecksum-1.5.0.tgz"
+  "version" "1.5.0"
+
 "perfect-scrollbar@^1.5.5":
   "integrity" "sha512-dzalfutyP3e/FOpdlhVryN4AJ5XDVauVWxybSkLZmakFE2sS3y3pc4JnSprw8tGmHvkaG5Edr5T7LBTZ+WWU2g=="
   "resolved" "https://registry.npmjs.org/perfect-scrollbar/-/perfect-scrollbar-1.5.5.tgz"

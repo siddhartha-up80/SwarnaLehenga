@@ -1,16 +1,78 @@
-import React, { useRef } from "react";
+import React from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import CloseIcon from "@mui/icons-material/Close";
+// import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Link from "next/link";
+import Head from "next/head";
+import Script from "next/script";
 
 const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
-  const ref = useRef();
-    // console.log(subTotal);
+  const inititatePayment = async () => {
+    
+   
+    let oid = Math.floor(Math.random() * Date.now());
+
+    // get a transaction tokem
+    const data = { cart, subTotal, oid, email: "email" };
+
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransaction`, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+   let txnRes = await a.json();
+    console.log(txnRes);
+    let txnToken = txnRes.txnToken
+
+    var config = {
+      root: "",
+      flow: "DEFAULT",
+      data: {
+        orderId: oid /* update order id */,
+        token: txnToken /* update token value */,
+        tokenType: "TXN_TOKEN",
+        amount: subTotal /* update amount */,
+      },
+      handler: {
+        notifyMerchant: function (eventName, data) {
+          console.log("notifyMerchant handler function called");
+          console.log("eventName => ", eventName);
+          console.log("data => ", data);
+        },
+      },
+    };
+
+    // initialze configuration using init method
+    window.Paytm.CheckoutJS.init(config)
+      .then(function onSuccess() {
+        // after successfully updating configuration, invoke JS Checkout
+        window.Paytm.CheckoutJS.invoke();
+      })
+      .catch(function onError(error) {
+        console.log("error => ", error);
+      });
+  };
+
   return (
     <>
       <div className="dark1:text-white">
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+          />
+        </Head>
+        <Script
+          type="application/javascript"
+          src={`${process.env.NEXT_PUBLIC_PAYTM_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_PAYTM_MID}.js`}
+          // onload="onScriptLoad();"
+          crossorigin="anonymous"
+        />
+
         <div className="flex flex-col items-center border-b py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
           <a
             href="#"
@@ -526,7 +588,10 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   </p>
                 </div>
                 <Link href="/order">
-                  <button className="mt-4 mb-8 h-10 w-full rounded-md bg-rose-900 px-6 py-3 font-medium text-white">
+                  <button
+                    onClick={inititatePayment}
+                    className="mt-4 mb-8 h-10 w-full rounded-md bg-rose-900 px-6 py-3 font-medium text-white"
+                  >
                     Place Order
                   </button>
                 </Link>
