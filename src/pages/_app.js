@@ -15,17 +15,17 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
   const [key, setKey] = useState();
-  const [progress, setProgress] = useState(0);
+  // const [progress, setProgress] = useState(0);
 
   // to get cart from local storage and update it
   useEffect(() => {
-    router.events.on("routeChangeStart", () => {
-      setProgress(40);
-    });
+    // router.events.on("routeChangeStart", () => {
+    //   setProgress(40);
+    // });
 
-    router.events.on("routeChangeComplete", () => {
-      setProgress(100);
-    });
+    // router.events.on("routeChangeComplete", () => {
+    //   setProgress(100);
+    // });
 
     try {
       if (localStorage.getItem("cart")) {
@@ -132,12 +132,12 @@ export default function App({ Component, pageProps }) {
       {!isHomePage && (
         // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops
         <>
-          <LoadingBar
+          {/* <LoadingBar
             color="#fff"
             progress={progress}
             waitingTime={400}
             onLoaderFinished={() => setProgress(0)}
-          />
+          /> */}
           {key && (
             <div>
               {" "}

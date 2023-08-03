@@ -28,7 +28,7 @@ const Orders = () => {
     <div className="container mx-auto h-screen md:py-14 pt-5 pb-20 px-8 md:px-14 ">
       {/* orders table */}
       <div>
-        <h1 class="text-3xl  lg:text-4xl font-semibold leading-7 lg:leading-9 text-rose-800">
+        <h1 className="text-3xl  lg:text-4xl font-semibold leading-7 lg:leading-9 text-rose-800">
           My Orders
         </h1>
       </div>

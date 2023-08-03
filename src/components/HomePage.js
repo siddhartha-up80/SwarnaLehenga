@@ -3,15 +3,15 @@ import Link from "next/link";
 import Loading from "./loading/Loading";
 
 const HomePage = () => {
-  const [loading, setLoading] = useState("hidden");
+  // const [loading, setLoading] = useState("hidden");
 
-  const loader = () => {
-    if (loading == "hidden") {
-      setLoading("block");
-    } else {
-      setLoading("hidden");
-    }
-  };
+  // const loader = () => {
+  //   if (loading == "hidden") {
+  //     setLoading("block");
+  //   } else {
+  //     setLoading("hidden");
+  //   }
+  // };
 
   return (
     <div className="" data-theme="cupcake">
@@ -32,15 +32,15 @@ const HomePage = () => {
             </p>
             <Link
               href="/saree"
-              onClick={() => {
-                loader();
-              }}
+              // onClick={() => {
+              //   loader();
+              // }}
             >
               <button
                 className="btn bg-rose-800 hover:bg-red-900 dark:text-white"
-                onClick={() => {
-                  loader();
-                }}
+                // onClick={() => {
+                //   loader();
+                // }}
               >
                 Get Started
               </button>

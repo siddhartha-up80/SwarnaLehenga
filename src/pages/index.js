@@ -19,9 +19,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomePage></HomePage>
-      <Script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></Script>
-      <Script src="../path/to/flowbite/dist/flowbite.min.js"></Script>
-      <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script>
+      {/* <Script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></Script> */}
+      {/* <Script src="../path/to/flowbite/dist/flowbite.min.js"></Script> */}
+      {/* <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script> */}
     </div>
   );
 }
