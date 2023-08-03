@@ -8,11 +8,11 @@ import Loading from "@/components/loading/Loading";
 const Kurti = ({ products }) => {
   return (
     <div>
-      {!products && (
+      {/* {!products && (
         <div>
           <Loading />
         </div>
-      )}
+      )} */}
       <section className="pt-5 pb-20 mb-20 text-gray-700 dark1:text-white sm:py-16 md:py-10 h-screen">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">

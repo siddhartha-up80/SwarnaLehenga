@@ -45,9 +45,9 @@ const HomePage = () => {
                 Get Started
               </button>
             </Link>
-            <div className={`absolute left-60 right-40 mt-10 ${loading}`}>
+            {/* <div className={`absolute left-60 right-40 mt-10 ${loading}`}>
               <Loading />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

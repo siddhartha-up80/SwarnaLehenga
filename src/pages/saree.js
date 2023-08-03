@@ -9,7 +9,7 @@ import Loading from "@/components/loading/Loading";
 const Saree = ({ products }) => {
   return (
     <div>
-      {!products && <div><Loading/></div>}
+      {/* {!products && <div><Loading/></div>} */}
       <section className="pt-5 pb-20 mb-20 text-gray-700  sm:py-16 md:py-10 h-screen">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
