@@ -14,7 +14,7 @@ const MyAccount = () => {
   return (
     <div className="h-screen">
       <div className="text-4xl">
-        <Loading />
+       loading...
       </div>
     </div>
   );
