@@ -44,11 +44,11 @@ const PageContainer = ({
   };
   const ref = useRef();
   return (
-    <div data-theme="cupcake">
-      <div className="drawer h-full dark1:text-white">
+    <div>
+      <div className="drawer h-full dark:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-800 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
+          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex lg:hidden">
@@ -87,7 +87,7 @@ const PageContainer = ({
                 <input
                   type="text"
                   placeholder="Type here"
-                  className="input w-[94vw] flex h-10  text-black dark1:bg-white"
+                  className="input w-[94vw] flex h-10  text-black dark:bg-white"
                 />
               </div> */}
             </div>
@@ -114,7 +114,7 @@ const PageContainer = ({
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-rose-500 dark1:bg-gray-500 rounded-box w-[8rem]"
+                    className="dropdown-content menu p-2 shadow bg-rose-500 dark:bg-gray-500 rounded-box w-[8rem]"
                   >
                     <li>
                       <Link href="/lehenga" className="text-sm ">
@@ -157,7 +157,7 @@ const PageContainer = ({
                       ></PersonIcon>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"
+                        className="dropdown-content menu shadow bg-rose-500 dark:bg-gray-500 rounded-box absolute w-[8rem]"
                       >
                         <li>
                           <Link href="/myaccount">Account</Link>
@@ -192,14 +192,14 @@ const PageContainer = ({
             {/* shopping cart side */}
             <div
               ref={ref}
-              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark1:bg-rose-900 md:dark1:bg-gray-700 dark1:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-xl rounded-xl lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
+              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark:bg-rose-900 md:dark:bg-gray-700 dark:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-xl rounded-xl lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
             >
               <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
                 onClick={toggleCart}
               ></CloseIcon>
 
-              <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark1:text-white">
+              <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark:text-white">
                 <h2 className="text-xl font-semibold">Your cart</h2>
                 <ul className="flex flex-col divide-y divide-gray-300">
                   {/* to display no itmes in the cart message  */}
@@ -324,7 +324,7 @@ const PageContainer = ({
                 <div className="flex justify-end space-x-4">
                   <button
                     type="button"
-                    className="px-6 py-2 border rounded-md border-rose-600 dark1:bg-white dark1:text-black"
+                    className="px-6 py-2 border rounded-md border-rose-600 dark:bg-white dark:text-black"
                     onClick={toggleCart}
                   >
                     Back <span className="sr-only sm:not-sr-only">to shop</span>
@@ -333,7 +333,7 @@ const PageContainer = ({
                   {!Object.keys(cart).length == 0 && (
                     <button
                       type="button"
-                      className="px-6 py-2 border rounded-md border-rose-600 dark1:bg-white dark1:text-black"
+                      className="px-6 py-2 border rounded-md border-rose-600 dark:bg-white dark:text-black"
                       onClick={() => {
                         clearCart();
                         setTimeout(() => toggleCart(), 500);

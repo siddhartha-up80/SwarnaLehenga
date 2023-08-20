@@ -3,14 +3,8 @@ import React from 'react'
 
 const Favourite = () => {
   return (
-    <div className="h-screen">
-      
-        <div>
-         loading...
-        </div>
-    
-    </div>
-  );
+    <div className='h-screen'>Favourite</div>
+  )
 }
 
 export default Favourite

@@ -64,10 +64,4 @@ module.exports = {
   },
   variants: {},
   plugins: [require("daisyui")],
-  // darkMode: false,
-  // darkMode: "class",
-
-  daisyui: {
-    themes: ["light", "dark", "cupcake"],
-  },
 };

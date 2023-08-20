@@ -8,12 +8,16 @@ import mongoose from "mongoose";
 const Kurti = ({ products }) => {
   return (
     <div>
+<<<<<<< HEAD
       {/* {!products && (
         <div>
           <Loading />
         </div>
       )} */}
       <section className="pt-5 pb-20 mb-20 text-gray-700 dark1:text-white sm:py-16 md:py-10 h-screen">
+=======
+      <section className="pt-5 pb-20 mb-20 text-gray-700 dark:text-white sm:py-16 md:py-10 h-screen">
+>>>>>>> parent of e8cd0b3 (Forced Dark Mode to all pages)
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
             <h2 className=" text-2xl font-bold sm:text-3xl">
@@ -69,27 +73,27 @@ const Kurti = ({ products }) => {
                       </div>
                       <div className="sizes mt-1">
                         {products[item].size.includes("S") && (
-                          <span className="border  rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
+                          <span className="border  rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
                             S
                           </span>
                         )}
                         {products[item].size.includes("M") && (
-                          <span className="border  rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
+                          <span className="border  rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
                             M
                           </span>
                         )}
                         {products[item].size.includes("L") && (
-                          <span className="border rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
+                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
                             L
                           </span>
                         )}
                         {products[item].size.includes("XL") && (
-                          <span className="border rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
+                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
                             XL
                           </span>
                         )}
                         {products[item].size.includes("XXL") && (
-                          <span className="border rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
+                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
                             XXL
                           </span>
                         )}

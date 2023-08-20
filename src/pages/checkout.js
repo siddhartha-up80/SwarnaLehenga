@@ -59,6 +59,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="dark1:text-white">
         {/* <Head>
           <meta
@@ -73,10 +74,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
           crossorigin="anonymous"
         /> */}
 
+=======
+      <div className="dark:text-white">
+>>>>>>> parent of e8cd0b3 (Forced Dark Mode to all pages)
         <div className="flex flex-col items-center border-b py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
           <a
             href="#"
-            className="text-2xl font-bold text-rose-800 dark1:text-white"
+            className="text-2xl font-bold text-rose-800 dark:text-white"
           >
             checkout
           </a>
@@ -103,13 +107,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                       />
                     </svg>
                   </a>
-                  <span className="font-semibold text-rose-900 dark1:text-white">
+                  <span className="font-semibold text-rose-900 dark:text-white">
                     Shop
                   </span>
                 </li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-rose-400 dark1:text-white"
+                  className="h-4 w-4 text-rose-400 dark:text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -128,13 +132,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   >
                     2
                   </a>
-                  <span className="font-semibold text-rose-900 dark1:text-white">
+                  <span className="font-semibold text-rose-900 dark:text-white">
                     Shipping
                   </span>
                 </li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-rose-400 dark1:text-white"
+                  className="h-4 w-4 text-rose-400 dark:text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -148,12 +152,12 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 </svg>
                 <li className="flex items-center space-x-3 text-left sm:space-x-4">
                   <a
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-400 text-xs font-semibold dark1:text-white text-white"
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-400 text-xs font-semibold dark:text-white text-white"
                     href="#"
                   >
                     3
                   </a>
-                  <span className="font-semibold text-rose-500 dark1:text-white">
+                  <span className="font-semibold text-rose-500 dark:text-white">
                     Payment
                   </span>
                 </li>
@@ -161,10 +165,10 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
             </div>
           </div>
         </div>
-        <div className="grid  lg:grid-cols-2 dark1:text-white">
+        <div className="grid  lg:grid-cols-2 dark:text-white">
           <div className="md:mt-10 px-4 pt-8 lg:mt-0">
             <p className="text-xl font-medium">Basic Details</p>
-            <p className="text-rose-400 dark1:text-white">
+            <p className="text-rose-400 dark:text-white">
               Provide your basic details and proceed further
             </p>
             <div className="">
@@ -185,7 +189,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-rose-400 dark1:text-white"
+                    className="h-4 w-4 text-rose-400 dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -276,7 +280,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
 
           <div className="md:mt-10 mb-12 h-full  px-4 pt-8 lg:mt-0">
             <p className="text-xl font-medium">Payment Details</p>
-            <p className="text-rose-400 dark1:text-white">
+            <p className="text-rose-400 dark:text-white">
               Complete your order by providing your payment details.
             </p>
             <div className="">
@@ -297,7 +301,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-rose-400 dark1:text-white"
+                    className="h-4 w-4 text-rose-400 dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -328,7 +332,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-rose-400 dark1:text-white"
+                    className="h-4 w-4 text-rose-400 dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -359,7 +363,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg
-                      className="h-4 w-4 text-rose-400 dark1:text-white"
+                      className="h-4 w-4 text-rose-400 dark:text-white"
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
@@ -428,7 +432,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
         <div className="mt-6 py-2 flex justify-center flex-wrap mb-14">
           {/* shopping cart review */}
           <div className="sidebar h-full w-full flex md:justify-center justify-between px-10 items-center flex-wrap">
-            <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark1:text-white ">
+            <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark:text-white ">
               <h2 className="text-xl font-semibold">Your cart</h2>
               <ul className="flex flex-col divide-y divide-gray-300">
                 {/* to display no itmes in the cart message  */}
@@ -562,28 +566,28 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
             <div className="mx-auto">
               <div>
                 <div className="flex items-center justify-between ">
-                  <p className="text-sm font-medium text-rose-900 dark1:text-white">
+                  <p className="text-sm font-medium text-rose-900 dark:text-white">
                     Subtotal
                   </p>
-                  <p className="font-semibold text-rose-900 dark1:text-white">
+                  <p className="font-semibold text-rose-900 dark:text-white">
                     ${subTotal}
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-rose-900 dark1:text-white">
+                  <p className="text-sm font-medium text-rose-900 dark:text-white">
                     Shipping
                   </p>
-                  <p className="font-semibold text-rose-900 dark1:text-white">
+                  <p className="font-semibold text-rose-900 dark:text-white">
                     $8.00
                   </p>
                 </div>
               </div>
               <div>
                 <div className="">
-                  <p className="text-sm font-medium text-rose-900 dark1:text-white">
+                  <p className="text-sm font-medium text-rose-900 dark:text-white">
                     Total
                   </p>
-                  <p className="text-2xl font-semibold text-rose-900 dark1:text-white">
+                  <p className="text-2xl font-semibold text-rose-900 dark:text-white">
                     ${subTotal !== 0 ? subTotal + 8 : 0}
                   </p>
                 </div>
