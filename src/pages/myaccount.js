@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Loading from "@/components/loading/Loading";
+
 import { useRouter } from "next/router";
 
 const MyAccount = () => {
