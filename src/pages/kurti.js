@@ -4,20 +4,10 @@ import Product from "@/models/Product";
 import connectDb from "@/middleware/mongoose";
 import mongoose from "mongoose";
 
-
 const Kurti = ({ products }) => {
   return (
     <div>
-<<<<<<< HEAD
-      {/* {!products && (
-        <div>
-          <Loading />
-        </div>
-      )} */}
-      <section className="pt-5 pb-20 mb-20 text-gray-700 dark1:text-white sm:py-16 md:py-10 h-screen">
-=======
       <section className="pt-5 pb-20 mb-20 text-gray-700 dark:text-white sm:py-16 md:py-10 h-screen">
->>>>>>> parent of e8cd0b3 (Forced Dark Mode to all pages)
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
             <h2 className=" text-2xl font-bold sm:text-3xl">
@@ -120,7 +110,9 @@ const Kurti = ({ products }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(
+      "mongodb+srv://rebel:7017614925@cluster0.ihexdsa.mongodb.net/?retryWrites=true&w=majority"
+    );
   }
   // console.log(process.env.MONGO_URI);
   let products = await Product.find({ category: "kurti" });
