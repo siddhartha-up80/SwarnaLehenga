@@ -1,17 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
-const Forgot = () => {
-   const router = useRouter();
-   
-   useEffect(() => {
-     if (localStorage.getItem("token")) {
-       router.push("/saree");
-     }
-   }, []);
-
-
+const forgot = () => {
   return (
     <div>
       <section className="min-h-screen flex items-stretch text-white ">
@@ -210,4 +200,4 @@ const Forgot = () => {
   );
 }
 
-export default Forgot
+export default forgot

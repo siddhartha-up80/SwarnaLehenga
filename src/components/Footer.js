@@ -9,55 +9,18 @@ import HomeIcon from "@mui/icons-material/Home";
 
 import Link from 'next/link';
 
-const Footer = ({ toggleCart, user, logout }) => {
+const Footer = ({ toggleCart }) => {
   return (
     <div>
       <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border bottom-0 left-1/2 dark:bg-rose-900 dark:border-red-900 lg:hidden z-11">
-        {/* test */}
-        {/* {user.value && (
-          <div
-            className="cursor-pointer"
-            // onMouseOver={toggleDropdown}
-            // onMouseLeave={toggleDropdown}
-          >
-            <div className="dropdown dropdown-hover">
-              <span>User</span>
-
-              <PersonIcon className="mt-1"></PersonIcon>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"
-              >
-                <li>
-                  <Link href="/profile">Account</Link>
-                </li>
-                <li>
-                  <Link href="/order">Orders</Link>
-                </li>
-                <li>
-                  <span onClick={logout}>Logout</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-        {!user.value && (
-          <div className="flex gap-2">
-            <Link href="/login">
-              <button className="px-2 font-bold">Login</button>
-            </Link>
-          </div>
-        )} */}
-        {/* test */}
-
         <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
           <button
             data-tooltip-target="tooltip-home"
             type="button"
             className="inline-flex flex-col items-center justify-center px-5  hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
-            <Link href="/saree">
-              <HomeIcon className="text-2xl m-4 text-white"></HomeIcon>
+            <Link href="/">
+              <HomeIcon className="text-2xl m-4"></HomeIcon>
             </Link>
             <span className="sr-only">Home</span>
           </button>
@@ -75,7 +38,7 @@ const Footer = ({ toggleCart, user, logout }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/categories">
-              <CategoryIcon className="text-2xl  text-white"></CategoryIcon>
+              <CategoryIcon className="text-2xl m-4"></CategoryIcon>
             </Link>
 
             <span className="sr-only">Wallet</span>
@@ -95,7 +58,7 @@ const Footer = ({ toggleCart, user, logout }) => {
               className="inline-flex items-center justify-center w-12 h-12 font-medium dark:bg-rose-800 bg-rose-600  rounded-full hover:bg-rose-500 group focus:ring-4 focus:ring-rose-300 focus:outline-none dark:focus:ring-rose-700"
               onClick={toggleCart}
             >
-              <ShoppingCartIcon className="text-2xl m-2 text-white"></ShoppingCartIcon>
+              <ShoppingCartIcon className="text-2xl m-2"></ShoppingCartIcon>
             </button>
           </div>
           <div
@@ -112,7 +75,7 @@ const Footer = ({ toggleCart, user, logout }) => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
             <Link href="/favourite">
-              <BookmarkIcon className="text-2xl  text-white"></BookmarkIcon>
+              <BookmarkIcon className="text-2xl m-4"></BookmarkIcon>
             </Link>
 
             <span className="sr-only">Settings</span>
@@ -130,32 +93,10 @@ const Footer = ({ toggleCart, user, logout }) => {
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
-            {/* <Link href="/login">
-              <PersonIcon className="text-2xl  text-white"></PersonIcon>
-            </Link> */}
-            {/* profileButton */}
-            {user.value && (
-              <div
-                className="cursor-pointer"
-                // onMouseOver={toggleDropdown}
-                // onMouseLeave={toggleDropdown}
-              >
-                <Link href="/myaccount">
-                  <PersonIcon className="text-2xl  text-white"></PersonIcon>
-                </Link>
-              </div>
-            )}
-            {/* profileButton */}
-            {!user.value && (
-              <div className="flex gap-2">
-                <Link href="/login">
-                  <button className="px-2 font-bold text-white ">
-                    {" "}
-                    <PersonIcon className="text-2xl  text-white"></PersonIcon>
-                  </button>
-                </Link>
-              </div>
-            )}{" "}
+            <Link href="/login">
+              <PersonIcon className="text-2xl m-4"></PersonIcon>
+            </Link>
+
             <span className="sr-only">Profile</span>
           </button>
           <div

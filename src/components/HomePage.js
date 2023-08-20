@@ -1,20 +1,8 @@
-import React, { useState } from "react";
-import Link from "next/link";
-// import Loading from "./loading/Loading";
-
+import React from 'react'
+import Link from 'next/link';
 const HomePage = () => {
-  // const [loading, setLoading] = useState("hidden");
-
-  // const loader = () => {
-  //   if (loading == "hidden") {
-  //     setLoading("block");
-  //   } else {
-  //     setLoading("hidden");
-  //   }
-  // };
-
   return (
-    <div className="" data-theme="cupcake">
+    <div className="dark:text-white">
       <div
         className="hero min-h-screen"
         style={{
@@ -30,29 +18,16 @@ const HomePage = () => {
             <p className="mb-5 dark:text-white">
               The Ultimate Destination for Luxurious Indian Fashion
             </p>
-            <Link
-              href="/saree"
-              // onClick={() => {
-              //   loader();
-              // }}
-            >
-              <button
-                className="btn bg-rose-800 hover:bg-red-900 dark:text-white"
-                // onClick={() => {
-                //   loader();
-                // }}
-              >
+            <Link href="/saree">
+              <button className="btn bg-rose-800 hover:bg-red-900 dark:text-white">
                 Get Started
               </button>
             </Link>
-            {/* <div className={`absolute left-60 right-40 mt-10 ${loading}`}>
-              <Loading />
-            </div> */}
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default HomePage;
+export default HomePage

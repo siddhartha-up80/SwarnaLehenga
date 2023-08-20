@@ -3,7 +3,6 @@ import Link from "next/link";
 import Product from "@/models/Product";
 import connectDb from "@/middleware/mongoose";
 import mongoose from "mongoose";
-import Loading from "@/components/loading/Loading";
 
 const Lehenga = ({ products }) => {
   return (
@@ -64,27 +63,27 @@ const Lehenga = ({ products }) => {
                       </div>
                       <div className="sizes mt-1">
                         {products[item].size.includes("S") && (
-                          <span className="border  rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                          <span className="border  rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
                             S
                           </span>
                         )}
                         {products[item].size.includes("M") && (
-                          <span className="border  rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                          <span className="border  rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
                             M
                           </span>
                         )}
                         {products[item].size.includes("L") && (
-                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                          <span className="border rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
                             L
                           </span>
                         )}
                         {products[item].size.includes("XL") && (
-                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                          <span className="border rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
                             XL
                           </span>
                         )}
                         {products[item].size.includes("XXL") && (
-                          <span className="border rounded border-pink-300 dark:border-gray-400 px-1 mx-1">
+                          <span className="border rounded border-pink-300 dark1:border-gray-400 px-1 mx-1">
                             XXL
                           </span>
                         )}
@@ -111,7 +110,9 @@ const Lehenga = ({ products }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(
+      "mongodb+srv://rebel:7017614925@cluster0.ihexdsa.mongodb.net/?retryWrites=true&w=majority"
+    );
   }
   // console.log(process.env.MONGO_URI);
   let products = await Product.find({ category: "lehenga" });

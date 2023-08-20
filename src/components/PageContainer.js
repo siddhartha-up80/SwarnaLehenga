@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
-import FooterDesktop from "./FooterDesktop";
 
 // material ui icons
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -26,7 +25,7 @@ const PageContainer = ({
   buyNow,
   user,
   key,
-  logout,
+  logout
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const toggleDropdown = () => {
@@ -44,8 +43,8 @@ const PageContainer = ({
   };
   const ref = useRef();
   return (
-    <div>
-      <div className="drawer h-full dark:text-white">
+    <div data-theme="cupcake">
+      <div className="drawer h-full dark1:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
@@ -71,23 +70,15 @@ const PageContainer = ({
                     </svg>
                   </label>
                 </div>
-                <div className="h-8 w-8 my-2 md:ml-2 md:mr-0 mr-1">
-                  <img
-                    className="h-full w-full bg-cover bg-center object-cover rounded-md"
-                    src="https://images.unsplash.com/photo-1551726824-bbeab11db685?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
-                    alt=""
-                  />
-                </div>
-                <Link className="flex mt-2.5 ml-2 text-lg font-semibold" href="/">
+                <Link className="flex mt-2.5 ml-2 text-lg" href="/">
                   <div>Swarna Lehenga</div>
                 </Link>
-                
               </div>
               {/* <div className="lg:hidden flex justify-center items-center w-[94vw]">
                 <input
                   type="text"
                   placeholder="Type here"
-                  className="input w-[94vw] flex h-10  text-black dark:bg-white"
+                  className="input w-[94vw] flex h-10  text-black dark1:bg-white"
                 />
               </div> */}
             </div>
@@ -96,51 +87,35 @@ const PageContainer = ({
               <input
                 type="text"
                 placeholder="Type here"
-                className="input w-full lg:w-[30rem] h-8 text-black bg-white rounded-sm"
+                className="input w-full lg:w-[30rem] h-8 text-black bg-white"
               />
             </div>
             <div className="flex-none lg:flex hidden">
               <div className="flex gap-5 mt-2.5">
                 <div className="dropdown dropdown-hover ">
-                  <label tabIndex={0} className="flex gap-2 ">
-                    <Link href="/categories" className="text-sm font-bold mt-1">
-                      Categories
-                    </Link>
-                    <CategoryIcon
-                      className="mt-1"
-                      style={{ width: "18px", height: "18px" }}
-                    ></CategoryIcon>
+                  <label tabIndex={0} className="flex gap-2">
+                    <Link href="/categories">Categories</Link>
+                    <CategoryIcon className="mt-1"></CategoryIcon>
                   </label>
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-rose-500 dark:bg-gray-500 rounded-box w-[8rem]"
+                    className="dropdown-content menu p-2 shadow bg-rose-500 dark1:bg-gray-500 rounded-box w-[8rem]"
                   >
                     <li>
-                      <Link href="/lehenga" className="text-sm ">
-                        Lehenga
-                      </Link>
+                      <Link href="/lehenga">Lehenga</Link>
                     </li>
                     <li>
-                      <Link href="/saree" className="text-sm ">
-                        Saree
-                      </Link>
+                      <Link href="/saree">Saree</Link>
                     </li>
                     <li>
-                      <Link href="/kurti" className="text-sm ">
-                        Kurti
-                      </Link>
+                      <Link href="/kurti">Kurti</Link>
                     </li>
                   </ul>
                 </div>
                 <div className="flex gap-2">
-                  <Link href="/favourite" className="text-sm font-bold mt-1">
-                    Favourite
-                  </Link>
-                  <BookmarkIcon
-                    className="mt-1"
-                    style={{ width: "18px", height: "18px" }}
-                  ></BookmarkIcon>
+                  <Link href="/favourite">Favourite</Link>
+                  <BookmarkIcon className="mt-1"></BookmarkIcon>
                 </div>
                 {user.value && (
                   <div
@@ -149,21 +124,18 @@ const PageContainer = ({
                     onMouseLeave={toggleDropdown}
                   >
                     <div className="dropdown dropdown-hover">
-                      <span className="text-sm font-bold">User</span>
+                      <span>User</span>
 
-                      <PersonIcon
-                        className="ml-2"
-                        style={{ width: "20px", height: "20px" }}
-                      ></PersonIcon>
+                      <PersonIcon className="mt-1"></PersonIcon>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu shadow bg-rose-500 dark:bg-gray-500 rounded-box absolute w-[8rem]"
+                        className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"
                       >
                         <li>
-                          <Link href="/myaccount">Account</Link>
+                          <Link href="/profile">Account</Link>
                         </li>
                         <li>
-                          <Link href="/orders">Orders</Link>
+                          <Link href="/order">Orders</Link>
                         </li>
                         <li>
                           <span onClick={logout}>Logout</span>
@@ -192,14 +164,14 @@ const PageContainer = ({
             {/* shopping cart side */}
             <div
               ref={ref}
-              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark:bg-rose-900 md:dark:bg-gray-700 dark:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-xl rounded-xl lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
+              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark1:bg-rose-900 md:dark1:bg-gray-700 dark1:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-xl rounded-xl lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
             >
               <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
                 onClick={toggleCart}
               ></CloseIcon>
 
-              <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark:text-white">
+              <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800 dark1:text-white">
                 <h2 className="text-xl font-semibold">Your cart</h2>
                 <ul className="flex flex-col divide-y divide-gray-300">
                   {/* to display no itmes in the cart message  */}
@@ -324,7 +296,7 @@ const PageContainer = ({
                 <div className="flex justify-end space-x-4">
                   <button
                     type="button"
-                    className="px-6 py-2 border rounded-md border-rose-600 dark:bg-white dark:text-black"
+                    className="px-6 py-2 border rounded-md border-rose-600 dark1:bg-white dark1:text-black"
                     onClick={toggleCart}
                   >
                     Back <span className="sr-only sm:not-sr-only">to shop</span>
@@ -333,7 +305,7 @@ const PageContainer = ({
                   {!Object.keys(cart).length == 0 && (
                     <button
                       type="button"
-                      className="px-6 py-2 border rounded-md border-rose-600 dark:bg-white dark:text-black"
+                      className="px-6 py-2 border rounded-md border-rose-600 dark1:bg-white dark1:text-black"
                       onClick={() => {
                         clearCart();
                         setTimeout(() => toggleCart(), 500);
@@ -381,12 +353,7 @@ const PageContainer = ({
 
           {/* bottom navigation */}
           <div className="">
-            <Footer
-              toggleCart={toggleCart}
-              user={user}
-              logout={logout}
-            ></Footer>
-            <FooterDesktop />
+            <Footer toggleCart={toggleCart}></Footer>
           </div>
           {/* end of bottom navigation */}
         </div>
@@ -402,28 +369,6 @@ const PageContainer = ({
             <li>
               <Link href="/kurti">Kurti</Link>
             </li>
-
-            {user.value && (
-              <>
-                <li>
-                  <Link href="/myaccount">Account</Link>
-                </li>
-                <li>
-                  <Link href="/orders">Orders</Link>
-                </li>
-                <li>
-                  <span onClick={logout}>Logout</span>
-                </li>
-              </>
-            )}
-
-            {!user.value && (
-              <div className="flex gap-2">
-                <Link href="/login">
-                  <button className="px-2 font-bold">Login</button>
-                </Link>
-              </div>
-            )}
           </ul>
         </div>
       </div>

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
 const Login = () => {
-  const router = useRouter('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const router = useRouter();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const handleChange = (e) => {
     if (e.target.name == "email") {
@@ -17,16 +17,10 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      router.push("/saree");
-    }
-  }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { email, password };
-    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
+    let res = await fetch("http://localhost:3000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +34,7 @@ const Login = () => {
 
     setPassword("");
     if (response.success) {
-      localStorage.setItem("token", response.token);
+      localStorage.setItem("token", response.token)
       toast.success("You are successfully logged in, Step Into the Elegance!", {
         position: "top-right",
         autoClose: 2000,
@@ -53,11 +47,11 @@ const Login = () => {
       });
 
       setTimeout(() => {
-        router.push(`${process.env.NEXT_PUBLIC_HOST}/saree`);
+        router.push("http://localhost:3000/saree");
       }, 1000);
     } else {
       toast.error(response.error, {
-        position: "top-right",
+        position: "top-right", 
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
