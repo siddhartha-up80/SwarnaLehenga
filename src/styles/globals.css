@@ -37,14 +37,14 @@ body {
   background-color: rgb(255, 250, 247);
 } */
 
-:root {
+/* :root {
   color-scheme: only light;
-}
+} */
 
 
 /* loading */
 
-
+/* 
 #load {
   position:absolute;
   width:600px;
@@ -260,4 +260,4 @@ body {
 		transform:rotate(-180deg); 
 		opacity:0;
 	}
-}
+} */

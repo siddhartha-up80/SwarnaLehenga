@@ -4,8 +4,8 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Link from "next/link";
-import Head from "next/head";
-import Script from "next/script";
+// import Head from "next/head";
+// import Script from "next/script";
 
 const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
   // const inititatePayment = async () => {
@@ -60,12 +60,12 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
   return (
     <>
       <div className="dark1:text-white">
-        <Head>
+        {/* <Head>
           <meta
             name="viewport"
             content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
           />
-        </Head>
+        </Head> */}
         {/* <Script
           type="application/javascript"
           src={`${process.env.NEXT_PUBLIC_PAYTM_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_PAYTM_MID}.js`}

@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import PageContainer from "@/components/PageContainer";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import LoadingBar from "react-top-loading-bar";
+// import LoadingBar from "react-top-loading-bar";
 
 export default function App({ Component, pageProps }) {
   // to not display navbar page container component on homepage url/ :  {!isHomePage && ( .......

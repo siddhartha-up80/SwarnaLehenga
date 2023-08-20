@@ -3,13 +3,13 @@ import Link from "next/link";
 import Product from "@/models/Product";
 import connectDb from "@/middleware/mongoose";
 import mongoose from "mongoose";
-import Loading from "@/components/loading/Loading";
+
 
 
 const Saree = ({ products }) => {
   return (
     <div>
-      {/* {!products && <div><Loading/></div>} */}
+      
       <section className="pt-5 pb-20 mb-20 text-gray-700  sm:py-16 md:py-10 h-screen">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
@@ -113,9 +113,7 @@ const Saree = ({ products }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(
-      "mongodb+srv://rebel:7017614925@cluster0.ihexdsa.mongodb.net/?retryWrites=true&w=majority"
-    );
+    await mongoose.connect(process.env.MONGO_URI);
   }
   // console.log(process.env.MONGO_URI);
   let products = await Product.find({ category: "saree" });
