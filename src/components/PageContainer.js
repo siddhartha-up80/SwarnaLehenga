@@ -87,20 +87,20 @@ const PageContainer = ({
               <input
                 type="text"
                 placeholder="Type here"
-                className="input w-full lg:w-[30rem] h-8 text-black bg-white"
+                className="input w-full lg:w-[30rem] h-8 text-black bg-white rounded-sm"
               />
             </div>
             <div className="flex-none lg:flex hidden">
               <div className="flex gap-5 mt-2.5">
                 <div className="dropdown dropdown-hover ">
-                  <label tabIndex={0} className="flex gap-2">
+                  <label tabIndex={0} className="flex gap-2 font-bold">
                     <Link href="/categories">Categories</Link>
-                    <CategoryIcon className="mt-1"></CategoryIcon>
+                    <CategoryIcon className=""></CategoryIcon>
                   </label>
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-rose-500 dark1:bg-gray-500 rounded-box w-[8rem]"
+                    className="dropdown-content menu p-2 shadow bg-rose-500 dark1:bg-gray-500 rounded-box w-[8rem] font-bold"
                   >
                     <li>
                       <Link href="/lehenga">Lehenga</Link>
@@ -113,9 +113,9 @@ const PageContainer = ({
                     </li>
                   </ul>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 font-bold">
                   <Link href="/favourite">Favourite</Link>
-                  <BookmarkIcon className="mt-1"></BookmarkIcon>
+                  <BookmarkIcon className=""></BookmarkIcon>
                 </div>
                 {user.value && (
                   <div
@@ -123,10 +123,10 @@ const PageContainer = ({
                     onMouseOver={toggleDropdown}
                     onMouseLeave={toggleDropdown}
                   >
-                    <div className="dropdown dropdown-hover">
+                    <div className="dropdown dropdown-hover font-bold">
                       <span>User</span>
 
-                      <PersonIcon className="mt-1"></PersonIcon>
+                      <PersonIcon className=""></PersonIcon>
                       <ul
                         tabIndex={0}
                         className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"

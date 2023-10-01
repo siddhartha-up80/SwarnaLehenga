@@ -16,4 +16,14 @@ const OrderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Orders", OrderSchema);
+let Order;
+
+try {
+  // Try to get the existing model, or create a new one if it doesn't exist
+  Order = mongoose.model("Orders");
+} catch (error) {
+  // If the model doesn't exist, create it
+  Order = mongoose.model("Orders", OrderSchema);
+}
+
+export default Order;

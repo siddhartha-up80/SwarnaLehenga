@@ -76,7 +76,7 @@ const Slug = ({ buyNow, product, variants, addtoCart }) => {
             <img
               alt="ecommerce"
               className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-              src="https://source.unsplash.com/random/1080×1920/?saree"
+              src={product.img}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font uppercase text-gray-500 dark1:text-white tracking-widest">
