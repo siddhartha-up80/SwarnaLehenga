@@ -118,7 +118,7 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <div data-theme="cupcake">
       {!isHomePage && (
         // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops
 
@@ -167,6 +167,6 @@ export default function App({ Component, pageProps }) {
           logout={logout}
         />
       )}
-    </>
+    </div>
   );
 }

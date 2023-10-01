@@ -23,54 +23,28 @@ function ProductCard({
   };
 
   return (
-    <div className="wsk-cp-product ">
-      <Link href={`/product/${products.slug}`} className="wsk-cp-img">
-        <img src={imageUrl} alt="Product" className="img-responsive" />
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+      <Link href={`/product/${products.slug}`}>
+        <div className="block">
+          <img
+            src={imageUrl}
+            alt="Product"
+            className="w-full h-56 object-cover"
+          />
+        </div>
       </Link>
-      <div className="wsk-cp-text">
-        {/* <div className="category">
-          <span>{category}</span>
-        </div> */}
+      <div className="p-4">
         <Link href={`/product/${products.slug}`}>
-          <div className="sizes flex justify-center items-center mt-5">
-            {products.size.includes("S") && (
-              <span className="border  rounded border-pink-300 px-1 mx-1">
-                S
-              </span>
-            )}
-            {products.size.includes("M") && (
-              <span className="border  rounded border-pink-300 px-1 mx-1">
-                M
-              </span>
-            )}
-            {products.size.includes("L") && (
-              <span className="border rounded border-pink-300 px-1 mx-1">
-                L
-              </span>
-            )}
-            {products.size.includes("XL") && (
-              <span className="border rounded border-pink-300 px-1 mx-1">
-                XL
-              </span>
-            )}
-            {products.size.includes("XXL") && (
-              <span className="border rounded border-pink-300 px-1 mx-1">
-                XXL
-              </span>
-            )}
-          </div>
+          <div className="block text-gray-700 font-bold text-xl mb-2">{title}</div>
         </Link>
-        <div className="title-product">
-          <h3>{title}</h3>
-        </div>
-        <div className="description-prod">
-          <p>{description}</p>
-        </div>
-        <div className="card-footer">
-          <div className="wcf-left">
-            <span className="price">Rs.{price}</span>
+        <p className="text-gray-600 text-sm mb-4">{description}</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="text-xl text-gray-900 font-semibold">
+              Rs.{price}
+            </span>
           </div>
-          <div className="wcf-right">
+          <div>
             <button
               onClick={() => {
                 addtoCartHandler();
@@ -83,16 +57,18 @@ function ProductCard({
                   products.color
                 );
               }}
-              className="buy-btn"
+              className="bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded-full"
             >
               <ShoppingBasketIcon />
             </button>
           </div>
         </div>
       </div>
-      <span className="flex justify-end">
-        {added && <span className="added">Added to Cart</span>}
-      </span>
+      {added && (
+        <div className="bg-green-400 text-white text-center py-2">
+          Added to Cart
+        </div>
+      )}
     </div>
   );
 }

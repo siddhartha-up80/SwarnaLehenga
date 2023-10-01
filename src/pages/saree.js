@@ -12,8 +12,7 @@ const Saree = ({ products, addtoCart }) => {
   
 
   return (
-    <div>
-     
+    <div data-theme="cupcake">
       <section className="pt-5 pb-20 mb-20 text-gray-700  sm:py-16 md:py-10">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
@@ -43,7 +42,6 @@ const Saree = ({ products, addtoCart }) => {
                         description={`${products[item].desc.slice(0, 50)} ...`}
                         price={products[item].price}
                         addtoCart={addtoCart}
-                      
                       />
                       {/* test */}
                     </div>
