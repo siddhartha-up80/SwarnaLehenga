@@ -1,25 +1,17 @@
 import React from "react";
-import Head from "next/head";
+
 
 const About = () => {
   return (
     <div className="min-h-screen">
-      <Head>
-        <title>About Swarna Lehenga</title>
-        <meta
-          name="description"
-          content="Swarnalehenga: Learn more about Swarna Lehenga - The Ultimate Destination for Luxurious Indian Fashion"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+
       <div className="bg-rose-900">
-        <header className=" py-4 mt-10">
+        <div className=" py-4 mt-10">
           <div className="container mx-auto text-white text-center">
             <h1 className="text-3xl font-semibold">About Swarna Lehenga</h1>
             <p className="mt-2">Step Into Elegance with Swarna Lehenga</p>
           </div>
-        </header>
+        </div>
 
         <main className="container mx-auto py-8">
           <div className="bg-white p-8 rounded-lg shadow-lg">
@@ -53,8 +45,6 @@ const About = () => {
                 <a
                   href="https://inators.netlify.app"
                   className="text-rose-600 hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
                 >
                   https://swarnalehenga.vercel.app
                 </a>{" "}
