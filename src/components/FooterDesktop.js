@@ -15,17 +15,22 @@ const FooterDesktop = () => {
           aria-label="Footer Navigation"
           className="mx-auto mb-5 flex max-w-lg justify-center flex-col gap-10 text-center sm:flex-row sm:text-left"
         >
-          <a href="#" className="font-medium text-white">
+          <a href="/about" className="font-medium text-white">
             About
           </a>
-          <a href="#" className="font-medium text-white">
+          <a
+            href="https://github.com/siddhartha-up80"
+            className="font-medium text-white"
+            target="_blank"
+          >
             Github
           </a>
-          <a href="#" className="font-medium text-white">
+          <a
+            href="https://inators.netlify.app"
+            target="_blank"
+            className="font-medium text-white"
+          >
             Portfolio
-          </a>
-          <a href="#" className="font-medium text-white">
-            About Me
           </a>
         </nav>
         <p className="pb-5 text-center text-gray-300">

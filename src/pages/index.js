@@ -10,10 +10,10 @@ export default function Home() {
         <title>
           Swarna Lehenga - Step Into Elegance with Swarna Lehenga - The Ultimate
           Destination for Luxurious Indian Fashion
-        </title>
+        </title> 
         <meta
-          name="description"
-          content="Step Into Elegance with Swarna Lehenga - The Ultimate Destination for Luxurious Indian Fashion"
+          name="swarnalehenga"
+          content="SwarnaLehenga: Step Into Elegance with Swarna Lehenga - The Ultimate Destination for Luxurious Indian Fashion"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
