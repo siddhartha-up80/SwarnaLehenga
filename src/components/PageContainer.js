@@ -12,6 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { set } from "mongoose";
+import FooterDesktop from "./FooterDesktop";
 
 const PageContainer = ({
   Component,
@@ -25,7 +26,7 @@ const PageContainer = ({
   buyNow,
   user,
   key,
-  logout
+  logout,
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const toggleDropdown = () => {
@@ -356,6 +357,12 @@ const PageContainer = ({
             <Footer toggleCart={toggleCart}></Footer>
           </div>
           {/* end of bottom navigation */}
+
+          {/* desktop footer */}
+          <div>
+            <FooterDesktop />
+          </div>
+          {/* desktop footer */}
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-3" className="drawer-overlay"></label>

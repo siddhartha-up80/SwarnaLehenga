@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import mongoose from "mongoose";
 // import Product from "@/models/Product";
-import Order from '@/models/Order';
+import Order from "@/models/Order";
 import { useRouter } from "next/router";
 
-
-
 const Orders = () => {
-
   const router = useRouter();
 
   useEffect(() => {
@@ -16,13 +13,12 @@ const Orders = () => {
     }
   }, []);
 
-    const tableData = [
-      { name: "Product A", quantity: 10, color: "Blue", size: "Medium" },
-      { name: "Product B", quantity: 5, color: "Green", size: "Small" },
-      { name: "Product C", quantity: 20, color: "Red", size: "Large" },
-      { name: "Product D", quantity: 8, color: "Yellow", size: "Small" },
-    ];
-
+  const tableData = [
+    { name: "Product A", quantity: 10, color: "Blue", size: "Medium" },
+    { name: "Product B", quantity: 5, color: "Green", size: "Small" },
+    { name: "Product C", quantity: 20, color: "Red", size: "Large" },
+    { name: "Product D", quantity: 8, color: "Yellow", size: "Small" },
+  ];
 
   return (
     <div className="container mx-auto h-screen md:py-14 pt-5 pb-20 px-8 md:px-14 ">
@@ -57,7 +53,7 @@ const Orders = () => {
       {/* orders table */}
     </div>
   );
-}
+};
 
 // export async function getServerSideProps(context) {
 //   if (!mongoose.connections[0].readyState) {
@@ -68,9 +64,6 @@ const Orders = () => {
 
 //   // console.log(process.env.MONGO_URI);
 //   let orders = await Order.find({ });
-  
-
- 
 
 //   return {
 //     props: {
@@ -79,6 +72,4 @@ const Orders = () => {
 //   };
 // }
 
-
-
-export default Orders
+export default Orders;
