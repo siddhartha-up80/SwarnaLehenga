@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
@@ -31,8 +31,9 @@ const About = () => {
               <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;description:{" "}
                 <span className="text-yellow-300">
-                  ' Swarna Lehenga - Step Into Elegance with Swarna Lehenga -
-                  The Ultimate Destination for Luxurious Indian Fashion.'
+                  &lsquo; Swarna Lehenga - Step Into Elegance with Swarna
+                  Lehenga - The Ultimate Destination for Luxurious Indian
+                  Fashion.&rsquo;
                 </span>
                 ,
               </p>
@@ -47,6 +48,7 @@ const About = () => {
                   <a
                     href="https://inators.netlify.app"
                     target="_blank"
+                    rel="noreferrer"
                     className="text-yellow-300 hover:underline focus:border-none"
                   >
                     https://inators.netlify.app
@@ -63,6 +65,6 @@ const About = () => {
       </div>
     </div>
   );
-}
+};
 
-export default About
+export default About;

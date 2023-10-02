@@ -21,13 +21,13 @@ const FooterDesktop = () => {
           <a
             href="https://github.com/siddhartha-up80"
             className="font-medium text-white"
-            target="_blank"
+            
           >
             Github
           </a>
           <a
             href="https://inators.netlify.app"
-            target="_blank"
+            
             className="font-medium text-white"
           >
             Portfolio
