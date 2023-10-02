@@ -4,9 +4,9 @@ import {toast, ToastContainer } from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChange = (e) => {
     if (e.target.name == "name") {

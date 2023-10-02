@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChange = (e) => {
     if (e.target.name == "email") {
