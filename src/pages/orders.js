@@ -55,21 +55,19 @@ const Orders = () => {
   );
 };
 
-// export async function getServerSideProps(context) {
-//   if (!mongoose.connections[0].readyState) {
-//     await mongoose.connect(
-//       "mongodb+srv://rebel:7017614925@cluster0.ihexdsa.mongodb.net/?retryWrites=true&w=majority"
-//     );
-//   }
+export async function getServerSideProps(context) {
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect(process.env.MONGO_URI);
+  }
 
-//   // console.log(process.env.MONGO_URI);
-//   let orders = await Order.find({ });
+  // console.log(process.env.MONGO_URI); 
+  let orders = await Order.find({ });
 
-//   return {
-//     props: {
-//      orders : orders,
-//     },
-//   };
-// }
+  return {
+    props: {
+     orders : orders,
+    },
+  };
+}
 
 export default Orders;
