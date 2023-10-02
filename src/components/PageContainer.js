@@ -133,10 +133,10 @@ const PageContainer = ({
                         className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"
                       >
                         <li>
-                          <Link href="/profile">Account</Link>
+                          <Link href="/myaccount">Account</Link>
                         </li>
                         <li>
-                          <Link href="/order">Orders</Link>
+                          <Link href="/orders">Orders</Link>
                         </li>
                         <li>
                           <span onClick={logout}>Logout</span>

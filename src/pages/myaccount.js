@@ -12,10 +12,8 @@ const MyAccount = () => {
   }, []);
 
   return (
-    <div className="h-screen">
-      <div className="text-4xl">
-       loading...
-      </div>
+    <div className="min-h-screen">
+      MyAccount
     </div>
   );
 };
