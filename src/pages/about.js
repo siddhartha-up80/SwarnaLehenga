@@ -1,9 +1,18 @@
 import React from "react";
-
+import Head from "next/head";
 
 const About = () => {
   return (
     <div className="min-h-screen">
+      <Head>
+        <title>About Swarna Lehenga</title>
+        <meta
+          name="description"
+          content="Learn more about Swarna Lehenga - The Ultimate Destination for Luxurious Indian Fashion"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <div className="bg-rose-900">
         <div className=" py-4 mt-10">
@@ -40,8 +49,8 @@ const About = () => {
             <div className="mt-8">
               <h3 className="text-xl font-semibold">Visit Our Website</h3>
               <p className="text-gray-700 mt-2">
-                Explore our collection and discover the perfect Ethnic Wear for your
-                special occasion. Visit our website at{" "}
+                Explore our collection and discover the perfect Ethnic Wear for
+                your special occasion. Visit our website at{" "}
                 <a
                   href="https://inators.netlify.app"
                   className="text-rose-600 hover:underline"
