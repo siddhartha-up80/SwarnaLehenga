@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const FooterDesktop = () => {
   return (
@@ -15,9 +16,9 @@ const FooterDesktop = () => {
           aria-label="Footer Navigation"
           className="mx-auto mb-5 flex max-w-lg justify-center flex-col gap-10 text-center sm:flex-row sm:text-left"
         >
-          <a href="/about" className="font-medium text-white">
+          <Link href="/about" className="font-medium text-white">
             About
-          </a>
+          </Link>
           <a
             href="https://github.com/siddhartha-up80"
             className="font-medium text-white"
