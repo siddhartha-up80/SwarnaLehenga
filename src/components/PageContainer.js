@@ -71,13 +71,13 @@ const PageContainer = ({
                     </svg>
                   </label>
                 </div>
-                <div className="h-8 w-8 border-4 border-rose-700 bg-white flex ml-2 mt-2 mb-2">
+                {/* <div className="h-8 w-8 border-4 border-rose-700 bg-white flex ml-2 mt-2 mb-2">
                   <img
                     className="h-full w-full bg-cover bg-center object-cover"
                     src="https://images.unsplash.com/photo-1551726824-bbeab11db685?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
                     alt=""
                   />
-                </div>
+                </div> */}
                 <Link className="flex mt-2.5 ml-2 text-lg" href="/">
                   <div>Swarna Lehenga</div>
                 </Link>

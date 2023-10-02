@@ -13,7 +13,7 @@ const About = () => {
           </div>
         </div>
 
-        <main className="container mx-auto py-8">
+        <div className="container mx-auto py-8">
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4">
               Welcome to Swarna Lehenga
@@ -52,7 +52,7 @@ const About = () => {
               </p>
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );
