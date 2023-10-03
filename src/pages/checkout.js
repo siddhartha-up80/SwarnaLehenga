@@ -121,11 +121,11 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                       className="flex flex-col py-6 sm:flex-row sm:justify-between"
                     >
                       <div className="flex w-full space-x-2 sm:space-x-4">
-                        <img
+                        {/* <img
                           className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500"
                           src="imagelink"
                           alt="Polaroid camera"
-                        />
+                        /> */}
 
                         <div className="flex flex-col justify-between w-full pb-4">
                           <div className="flex justify-between w-full pb-2 space-x-2">
