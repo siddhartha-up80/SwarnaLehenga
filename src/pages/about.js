@@ -8,7 +8,7 @@ const About = () => {
         <title>About Swarna Lehenga</title>
         <meta
           name="description"
-          content="Learn more about Swarna Lehenga - The Ultimate Destination for Luxurious Indian Fashion"
+          content="Swarnalehenga: Learn more about SwarnaLehenga - The Ultimate Destination for Luxurious Indian Fashion"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
