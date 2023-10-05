@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import mongoose from "mongoose";
 // import Product from "@/models/Product";
-import Order from "@/models/Order";
+// import Order from "@/models/Orders";
 import { useRouter } from "next/router";
 
 const Orders = () => {
@@ -55,19 +55,19 @@ const Orders = () => {
   );
 };
 
-export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
-  }
+// export async function getServerSideProps(context) {
+//   if (!mongoose.connections[0].readyState) {
+//     await mongoose.connect(process.env.MONGO_URI);
+//   }
 
-  // console.log(process.env.MONGO_URI); 
-  let orders = await Order.find({ });
+//   // console.log(process.env.MONGO_URI); 
+//   let orders = await Order.find({ });
 
-  return {
-    props: {
-     orders : orders,
-    },
-  };
-}
+//   return {
+//     props: {
+//      orders : orders,
+//     },
+//   };
+// }
 
 export default Orders;
