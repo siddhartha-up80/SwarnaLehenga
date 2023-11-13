@@ -48,9 +48,9 @@ const PageContainer = ({
       <div className="drawer h-full dark1:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-opacity-0 hover:bg-rose-900 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
+          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem] z-10 flex justify-between fixed shadow-md bg-rose-900 md:bg-white md:hover:bg-rose-900 text-white md:text-black dark1:bg-rose-900 md:dark1:bg-gray-800  md:hover:text-white">
             <div className="flex flex-col">
-              <div className="flex font-mono w-full">
+              <div className="flex  w-full">
                 <div className="flex lg:hidden">
                   <label
                     htmlFor="my-drawer-3"
@@ -109,7 +109,7 @@ const PageContainer = ({
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-rose-800 dark1:bg-gray-500 rounded-md w-[8rem] font-bold"
+                    className="dropdown-content mt-5 menu p-2 shadow bg-rose-800 dark1:bg-gray-500 rounded-md w-[8rem] font-bold"
                   >
                     <li>
                       <Link href="/lehenga">Lehenga</Link>
@@ -134,12 +134,10 @@ const PageContainer = ({
                     onMouseLeave={toggleDropdown}
                   >
                     <div className="dropdown dropdown-hover font-bold">
-                      
-
                       <PersonIcon className=""></PersonIcon>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu shadow bg-rose-800 dark1:bg-gray-500 rounded-md absolute w-[8rem] right-0"
+                        className="dropdown-content mt-5 menu shadow bg-rose-800 dark1:bg-gray-500 rounded-md absolute w-[8rem] right-0"
                       >
                         <li>
                           <Link href="/myaccount">Account</Link>
@@ -174,7 +172,7 @@ const PageContainer = ({
             {/* shopping cart side */}
             <div
               ref={ref}
-              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark1:bg-rose-900 md:dark1:bg-gray-700 dark1:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-xl rounded-xl lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
+              className={`sidebar lg:absolute fixed lg:top-0 bottom-20 right-0 bg-white dark1:bg-rose-900 md:dark1:bg-gray-700 dark1:text-white transition-transform transform translate-x-full translate-x-0'} md:rounded-b-md rounded-md lg:h-[90vh] shadow-md z-10 overflow-y-scroll`}
             >
               <CloseIcon
                 className="text-red-600 rounded-full border-2 p-1 text-3xl absolute top-0 right-0 border-red-600 m-4 cursor-pointer"
@@ -347,7 +345,7 @@ const PageContainer = ({
           </div>
 
           {/* page content passed as component */}
-          <div className="page-container">
+          <div className="page-container mt-10">
             <Component
               {...pageProps}
               cart={cart}
