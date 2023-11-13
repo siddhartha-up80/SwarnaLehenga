@@ -109,7 +109,7 @@ const PageContainer = ({
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content mt-5 menu p-2 shadow bg-rose-800 dark1:bg-gray-500 rounded-md w-[8rem] font-bold"
+                    className="dropdown-content menu shadow bg-rose-800 dark1:bg-gray-500 rounded-md w-[8rem] font-bold"
                   >
                     <li>
                       <Link href="/lehenga">Lehenga</Link>
@@ -133,11 +133,11 @@ const PageContainer = ({
                     onMouseOver={toggleDropdown}
                     onMouseLeave={toggleDropdown}
                   >
-                    <div className="dropdown dropdown-hover font-bold">
+                    <div className="dropdown dropdown-hover duration-300 font-bold">
                       <PersonIcon className=""></PersonIcon>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content mt-5 menu shadow bg-rose-800 dark1:bg-gray-500 rounded-md absolute w-[8rem] right-0"
+                        className="dropdown-content menu shadow bg-rose-800 dark1:bg-gray-500 rounded-md absolute w-[8rem] -right-5"
                       >
                         <li>
                           <Link href="/myaccount">Account</Link>
