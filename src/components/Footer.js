@@ -12,7 +12,7 @@ import Link from 'next/link';
 const Footer = ({ toggleCart }) => {
   return (
     <div>
-      <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border bottom-0 left-1/2 dark:bg-rose-900 dark:border-red-900 lg:hidden z-11">
+      <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border bottom-0 left-1/2 dark:bg-rose-900 dark:border-red-900 lg:hidden z-11 dark:text-white">
         <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
           <button
             data-tooltip-target="tooltip-home"

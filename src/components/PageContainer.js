@@ -44,11 +44,11 @@ const PageContainer = ({
   };
   const ref = useRef();
   return (
-    <div data-theme="cupcake">
+    <div data-theme="cupcake z-10">
       <div className="drawer h-full dark1:text-white">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-rose-600 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
+          <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem]  flex justify-between bg-opacity-0 hover:bg-rose-900 dark1:bg-rose-900 md:dark1:bg-gray-800  text-white">
             <div className="flex flex-col">
               <div className="flex font-mono w-full">
                 <div className="flex lg:hidden">
@@ -92,23 +92,24 @@ const PageContainer = ({
             </div>
 
             <div className="lg:flex hidden mt-2">
-              <input
+              {/* <input
                 type="text"
                 placeholder="Type here"
                 className="input w-full lg:w-[30rem] h-8 text-black bg-white rounded-sm"
-              />
+              /> */}
             </div>
             <div className="flex-none lg:flex hidden">
               <div className="flex gap-5 mt-2.5">
                 <div className="dropdown dropdown-hover ">
                   <label tabIndex={0} className="flex gap-2 font-bold">
-                    <Link href="/categories">Categories</Link>
-                    <CategoryIcon className=""></CategoryIcon>
+                    <Link href="/categories">
+                      <CategoryIcon className=""></CategoryIcon>
+                    </Link>
                   </label>
 
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-rose-500 dark1:bg-gray-500 rounded-box w-[8rem] font-bold"
+                    className="dropdown-content menu p-2 shadow bg-rose-800 dark1:bg-gray-500 rounded-md w-[8rem] font-bold"
                   >
                     <li>
                       <Link href="/lehenga">Lehenga</Link>
@@ -122,8 +123,9 @@ const PageContainer = ({
                   </ul>
                 </div>
                 <div className="flex gap-2 font-bold">
-                  <Link href="/favourite">Favourite</Link>
-                  <BookmarkIcon className=""></BookmarkIcon>
+                  <Link href="/favourite">
+                    <BookmarkIcon className=""></BookmarkIcon>
+                  </Link>
                 </div>
                 {user.value && (
                   <div
@@ -132,12 +134,12 @@ const PageContainer = ({
                     onMouseLeave={toggleDropdown}
                   >
                     <div className="dropdown dropdown-hover font-bold">
-                      <span>User</span>
+                      
 
                       <PersonIcon className=""></PersonIcon>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu shadow bg-rose-500 dark1:bg-gray-500 rounded-box absolute w-[8rem]"
+                        className="dropdown-content menu shadow bg-rose-800 dark1:bg-gray-500 rounded-md absolute w-[8rem] right-0"
                       >
                         <li>
                           <Link href="/myaccount">Account</Link>

@@ -3,6 +3,7 @@ import PageContainer from "@/components/PageContainer";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
+
 export default function App({ Component, pageProps }) {
   // to not display navbar page container component on homepage url/ :  {!isHomePage && ( .......
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function App({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
-  const [key, setKey] = useState(0)
+  const [key, setKey] = useState(0);
 
   // to get cart from local storage and update it
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function App({ Component, pageProps }) {
     const token = localStorage.getItem("token");
     if (token) {
       setUser({ value: token });
-      setKey(Math.random())
+      setKey(Math.random());
     }
   }, [router.query]);
 
@@ -110,50 +111,32 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
   };
 
-
-  const logout = ()=>{
-      localStorage.removeItem("token")
-      setUser({value: null})
-      setKey(Math.random())
-      router.push("/")
-  }
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser({ value: null });
+    setKey(Math.random());
+    router.push("/");
+  };
 
   return (
     <div data-theme="cupcake">
-      {!isHomePage && (
-        // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops
+      {/* // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops */}
 
-        <PageContainer
-          buyNow={buyNow}
-          Component={Component}
-          pageProps={pageProps}
-          cart={cart}
-          addtoCart={addtoCart}
-          removefromCart={removefromCart}
-          clearCart={clearCart}
-          subTotal={subTotal}
-          test={test}
-          key={key}
-          user={user}
-          logout={logout}
-        >
-          <Component
-            {...pageProps}
-            buyNow={buyNow}
-            cart={cart}
-            addtoCart={addtoCart}
-            removefromCart={removefromCart}
-            clearCart={clearCart}
-            subTotal={subTotal}
-            test={test}
-            key={key}
-            user={user}
-            logout={logout}
-          />
-        </PageContainer>
-      )}
-
-      {isHomePage && (
+      <PageContainer
+        buyNow={buyNow}
+        Component={Component}
+        pageProps={pageProps}
+        cart={cart}
+        addtoCart={addtoCart}
+        removefromCart={removefromCart}
+        clearCart={clearCart}
+        subTotal={subTotal}
+        test={test}
+        key={key}
+        user={user}
+        logout={logout}
+      >
+        
         <Component
           {...pageProps}
           buyNow={buyNow}
@@ -167,7 +150,7 @@ export default function App({ Component, pageProps }) {
           user={user}
           logout={logout}
         />
-      )}
+      </PageContainer>
     </div>
   );
 }
