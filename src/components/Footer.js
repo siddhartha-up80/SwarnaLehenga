@@ -41,14 +41,14 @@ const Footer = ({ toggleCart }) => {
               <CategoryIcon className="text-2xl m-4"></CategoryIcon>
             </Link>
 
-            <span className="sr-only">Wallet</span>
+            <span className="sr-only">Categories</span>
           </button>
           <div
             id="tooltip-wallet"
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-rose-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-rose-700"
           >
-            Wallet
+            Cart
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <div className="flex items-center justify-center">
@@ -66,7 +66,7 @@ const Footer = ({ toggleCart }) => {
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-rose-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-rose-700"
           >
-            Create new item
+            Orders
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <button
@@ -74,18 +74,18 @@ const Footer = ({ toggleCart }) => {
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
-            <Link href="/favourite">
+            <Link href="/orders">
               <BookmarkIcon className="text-2xl m-4"></BookmarkIcon>
             </Link>
 
-            <span className="sr-only">Settings</span>
+            <span className="sr-only">Orders</span>
           </button>
           <div
             id="tooltip-settings"
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-rose-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-rose-700"
           >
-            Settings
+            My Account
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <button
@@ -93,18 +93,18 @@ const Footer = ({ toggleCart }) => {
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-rose-50 dark:hover:bg-rose-800 group"
           >
-            <Link href="/login">
+            <Link href="/myaccount">
               <PersonIcon className="text-2xl m-4"></PersonIcon>
             </Link>
 
-            <span className="sr-only">Profile</span>
+            <span className="sr-only">my account</span>
           </button>
           <div
             id="tooltip-profile"
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-rose-900 shadow-sm opacity-0 tooltip dark:bg-rose-700"
           >
-            Profile
+            My Account
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
         </div>

@@ -20,7 +20,7 @@ const MyAccount = () => {
               Update Your Account
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-             Enter your new updated details here to continue
+              Enter your new updated details here to continue
             </p>
           </div>
           <div className="lg:w-1/2 md:w-2/3 mx-auto">
@@ -57,6 +57,22 @@ const MyAccount = () => {
                   />
                 </div>
               </div>
+              <div>
+                <div className="relative p-2 w-full">
+                  <label
+                    htmlFor="password"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-rose-500 focus:bg-white focus:ring-2 focus:ring-rose-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
+                </div>
+              </div>
               <div className="p-2 w-full">
                 <div className="relative">
                   <label
@@ -78,7 +94,6 @@ const MyAccount = () => {
                   Update
                 </button>
               </div>
-             
             </div>
           </div>
         </div>
