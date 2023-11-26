@@ -1,17 +1,29 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 
 const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
+   const router = useRouter();
   const ref = useRef();
   const [formData, setFormData] = useState({
     email: "",
     address: "",
   });
+
+   useEffect(() => {
+     if (localStorage.getItem("token")) {
+    const details = localStorage.getItem("token").split(",");
+    setFormData({
+      email: details[1],
+      address: "",
+    })
+     }
+   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +61,10 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
          // Order placed successfully, you can handle the response here
          console.log("Order placed successfully");
          clearCart(); // Clear the cart after successful order
+
+         setTimeout(() => {
+           router.push("/orders");
+         }, 500)
        } else {
          console.error("Error placing order");
        }
@@ -329,6 +345,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, subTotal }) => {
                     </label>
                     <input
                       type="email"
+                      disabled
                       id="email"
                       name="email"
                       value={formData.email}

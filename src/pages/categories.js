@@ -11,7 +11,7 @@ const Categories = ({ categoryData }) => {
       <img
         className="object-cover object-right-bottom md:object-center rounded w-screen md:h-[80vh]"
         alt="ethnic wear"
-        src="/design.png"
+        src="/Design.png"
       />
       {/* image section */}
 

@@ -2,6 +2,7 @@ import React from "react";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function ProductCard({
   imageUrl,
@@ -26,7 +27,9 @@ function ProductCard({
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
       <Link href={`/product/${products.slug}`}>
         <div className="block">
-          <img
+          <Image
+            height={200}
+            width={200}
             src={imageUrl}
             alt="Product"
             className="w-full h-56 object-cover"
@@ -35,7 +38,9 @@ function ProductCard({
       </Link>
       <div className="p-4">
         <Link href={`/product/${products.slug}`}>
-          <div className="block text-gray-700 font-bold text-xl mb-2">{title}</div>
+          <div className="block text-gray-700 font-bold text-xl mb-2">
+            {title}
+          </div>
         </Link>
         <p className="text-gray-600 text-sm mb-4">{description}</p>
         <div className="flex items-center justify-between">

@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -12,9 +13,9 @@ export default function Home({ products }) {
 
   // console.log(products)
   const items = products.map((product) => (
-    <img
+    <Image height={200} width={200}
       key={product._id} // Make sure each item has a unique key
-      src={product.img} // Assuming img property exists in your product model
+      src={product.img} // Assuming Image height={500} width={500} property exists in your product model
       alt={product.title} // Assuming title property exists in your product model
       onDragStart={handleDragStart}
       role="presentation"
@@ -45,7 +46,7 @@ export default function Home({ products }) {
         <section className="text-gray-600 body-font">
           <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-              <img
+              <Image height={500} width={500}
                 className="object-cover object-center rounded"
                 alt="ethnic wear"
                 src="/section2.jpg"
@@ -86,7 +87,7 @@ export default function Home({ products }) {
           <span className="text-xl font-semibold">Top Fashion Deals</span>
           <span>
             <Link href="/categories">
-              <button className="btn rounded-sm bg-white hover:bg-rose-900 text-black hover:text-white hover:border-none">
+              <button className="btn rounded-md bg-rose-900 hover:bg-white text-white hover:text-black hover:border">
                 View All
               </button>
             </Link>
@@ -109,6 +110,7 @@ export default function Home({ products }) {
             disableAutoPlayOnAction={true}
             disableDotsControls
             disableButtonsControls
+            infinite={true}
           />
         </div>
       </>
@@ -135,7 +137,7 @@ export default function Home({ products }) {
               {products.slice(-6).map((product) => (
                 <div key={product._id} className="lg:w-1/3 sm:w-1/2 p-4">
                   <div className="flex relative h-full cursor-pointer">
-                    <img
+                    <Image height={200} width={200}
                       alt={product.title}
                       className="absolute inset-0 w-full h-full object-cover object-top"
                       src={product.img}

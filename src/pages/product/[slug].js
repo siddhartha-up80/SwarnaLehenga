@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import Product from "@/models/Product";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image"
 
 const Slug = ({ buyNow, product, variants, addtoCart }) => {
   const router = useRouter();
@@ -73,7 +74,9 @@ const Slug = ({ buyNow, product, variants, addtoCart }) => {
         <ToastContainer />
         <div className="container px-5 py-5 pb-20 md:py-20 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <img
+            <Image
+              height={300}
+              width={300}
               alt="ecommerce"
               className="lg:w-1/2 w-full  min-h-[50vh] max-h-[80vh] object-cover object-top rounded"
               src={product.img}

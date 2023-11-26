@@ -13,6 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { set } from "mongoose";
 import FooterDesktop from "./FooterDesktop";
+import Image from "next/image"
 
 const PageContainer = ({
   Component,
@@ -72,7 +73,9 @@ const PageContainer = ({
                   </label>
                 </div>
                 <div className="h-8 w-8 border-4 border-rose-700 bg-white flex ml-2 mt-2 mb-2">
-                  <img
+                  <Image
+                  height={50}
+                  width={50}
                     className="h-full w-full bg-cover bg-center object-cover"
                     src="https://images.unsplash.com/photo-1551726824-bbeab11db685?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
                     alt=""

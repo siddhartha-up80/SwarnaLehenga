@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleChange = (e) => {
     if (e.target.name == "email") {
@@ -30,11 +30,12 @@ const Login = () => {
     let response = await res.json();
     console.log(response);
 
+    console.log(data);
     setEmail("");
 
     setPassword("");
     if (response.success) {
-      localStorage.setItem("token", response.token)
+      localStorage.setItem("token", [response.token, data.email]);
       toast.success("You are successfully logged in, Step Into the Elegance!", {
         position: "top-right",
         autoClose: 2000,
@@ -51,7 +52,7 @@ const Login = () => {
       }, 1000);
     } else {
       toast.error(response.error, {
-        position: "top-right", 
+        position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
