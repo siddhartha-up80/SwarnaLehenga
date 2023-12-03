@@ -2,13 +2,15 @@ import "@/styles/globals.css";
 import PageContainer from "@/components/PageContainer";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import AdminSidebar from "@/components/AdminSidebar";
+
 
 
 export default function App({ Component, pageProps }) {
   // to not display navbar page container component on homepage url/ :  {!isHomePage && ( .......
-  const router = useRouter();
+ const router = useRouter();
 
-  const isHomePage = router.pathname === "/";
+ const isAdminPage = router.pathname.startsWith("/admin");
 
   // cart state
   const [cart, setCart] = useState({});
@@ -122,24 +124,36 @@ export default function App({ Component, pageProps }) {
     <div data-theme="cupcake">
       {/* // pagecontainer is the navbar component which contains the all the pages component passed as props: component and pageprops */}
 
-      <PageContainer
-        buyNow={buyNow}
-        Component={Component}
-        pageProps={pageProps}
-        cart={cart}
-        addtoCart={addtoCart}
-        removefromCart={removefromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-        test={test}
-        key={key}
-        user={user}
-        logout={logout}
-      >
-        
-        <Component
-          {...pageProps}
+      {isAdminPage ? (
+        <div className="">
+          <div className="flex">
+            <div className="z-20">
+              <AdminSidebar />
+            </div>
+
+            <div className="w-full h-full ">
+              <Component
+                {...pageProps}
+                Component={Component}
+                buyNow={buyNow}
+                cart={cart}
+                addtoCart={addtoCart}
+                removefromCart={removefromCart}
+                clearCart={clearCart}
+                subTotal={subTotal}
+                test={test}
+                key={key}
+                user={user}
+                logout={logout}
+              />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <PageContainer
           buyNow={buyNow}
+          Component={Component}
+          pageProps={pageProps}
           cart={cart}
           addtoCart={addtoCart}
           removefromCart={removefromCart}
@@ -149,8 +163,22 @@ export default function App({ Component, pageProps }) {
           key={key}
           user={user}
           logout={logout}
-        />
-      </PageContainer>
+        >
+          <Component
+            {...pageProps}
+            buyNow={buyNow}
+            cart={cart}
+            addtoCart={addtoCart}
+            removefromCart={removefromCart}
+            clearCart={clearCart}
+            subTotal={subTotal}
+            test={test}
+            key={key}
+            user={user}
+            logout={logout}
+          />
+        </PageContainer>
+      )}
     </div>
   );
 }

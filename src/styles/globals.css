@@ -12,31 +12,11 @@ font-family: 'Montserrat', sans-serif;
 }
 
 
-:root {
-  color-scheme: only light;
-}
-
-@media (forced-colors: active) {
-    :root {
-        color-scheme: light;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-  
-  body {
-    background-color: rgb(245, 242, 242);
-    
-  }
-}
 
 /* body{
   background-color: rgb(255, 250, 247);
 } */
 
-:root {
-  color-scheme: only light;
-}
 
 @keyframes fadeInOut {
   0% {

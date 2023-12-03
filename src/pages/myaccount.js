@@ -1,15 +1,69 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 
 const MyAccount = () => {
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [user, setUser] = useState({
+    email: email,
+    address: "",
+    name: "",
+    phone: "",
+    password: "",
+  });
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      router.push("/saree");
+      router.push("/login");
+    }
+
+    if (localStorage.getItem("token")) {
+      const details = localStorage.getItem("token").split(",");
+      const email = details[1];
+      setEmail(email);
     }
   }, []);
+
+  // console.log(email)
+
+  const handleInputChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const response = await fetch("/api/updateaccount", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          name: user.name,
+          phone: user.phone,
+          address: user.address,
+          password: user.password,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(data); // Log the response data for debugging
+
+      // Handle success, e.g., show a success message to the user
+      // You can also redirect the user to another page if needed
+    } catch (error) {
+      console.error("Error updating user:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -37,6 +91,8 @@ const MyAccount = () => {
                     type="text"
                     id="name"
                     name="name"
+                    value={user.name}
+                    onChange={handleInputChange}
                     className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-rose-500 focus:bg-white focus:ring-2 focus:ring-rose-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
@@ -53,12 +109,14 @@ const MyAccount = () => {
                     type="email"
                     id="email"
                     name="email"
+                    value={user.email}
+                    onChange={handleInputChange}
                     className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-rose-500 focus:bg-white focus:ring-2 focus:ring-rose-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
               </div>
-              <div>
-                <div className="relative p-2 w-full">
+              <div className="p-2 w-1/2">
+                <div className="relative ">
                   <label
                     htmlFor="password"
                     className="leading-7 text-sm text-gray-600"
@@ -69,6 +127,26 @@ const MyAccount = () => {
                     type="password"
                     id="password"
                     name="password"
+                    value={user.password}
+                    onChange={handleInputChange}
+                    className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-rose-500 focus:bg-white focus:ring-2 focus:ring-rose-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
+                </div>
+              </div>
+              <div className=" p-2 w-1/2">
+                <div className="relative">
+                  <label
+                    htmlFor="phone"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    type="phone"
+                    id="phone"
+                    name="phone"
+                    value={user.phone}
+                    onChange={handleInputChange}
                     className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-rose-500 focus:bg-white focus:ring-2 focus:ring-rose-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
@@ -83,14 +161,18 @@ const MyAccount = () => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
+                    name="address"
+                    value={user.address}
+                    onChange={handleInputChange}
                     className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-rose-500 focus:bg-white focus:ring-2 focus:ring-rose-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                    defaultValue={""}
                   />
                 </div>
               </div>
               <div className="p-2 w-full">
-                <button className="flex mx-auto text-white bg-rose-500 border-0 py-2 px-8 focus:outline-none hover:bg-rose-600 rounded text-lg">
+                <button
+                  className="flex mx-auto text-white bg-rose-500 border-0 py-2 px-8 focus:outline-none hover:bg-rose-600 rounded text-lg"
+                  onClick={handleUpdate}
+                >
                   Update
                 </button>
               </div>

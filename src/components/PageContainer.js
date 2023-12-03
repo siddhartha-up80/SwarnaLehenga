@@ -15,6 +15,8 @@ import { set } from "mongoose";
 import FooterDesktop from "./FooterDesktop";
 import Image from "next/image"
 
+
+
 const PageContainer = ({
   Component,
   pageProps,
@@ -26,13 +28,18 @@ const PageContainer = ({
   test,
   buyNow,
   user,
-  key,
+
   logout,
 }) => {
   const [dropdown, setDropdown] = useState(false);
+
+    
+
   const toggleDropdown = () => {
     setDropdown(!dropdown);
   };
+
+
 
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
@@ -45,8 +52,9 @@ const PageContainer = ({
   };
   const ref = useRef();
   return (
-    <div data-theme="cupcake z-10">
-      <div className="drawer h-full dark1:text-white">
+    <div data-theme="cupcake mt-10">
+
+      <div className="drawer h-full dark1:text-white  z-10">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <div className="w-full  pt-0 mt-0 h-0 min-h-[3rem] z-10 flex justify-between fixed shadow-md bg-rose-900 md:bg-white md:hover:bg-rose-900 text-white md:text-black dark1:bg-rose-900 md:dark1:bg-gray-800  md:hover:text-white">
@@ -74,15 +82,17 @@ const PageContainer = ({
                 </div>
                 <div className="h-8 w-8 border-4 border-rose-700 bg-white flex ml-2 mt-2 mb-2">
                   <Image
-                  height={50}
-                  width={50}
+                    height={50}
+                    width={50}
                     className="h-full w-full bg-cover bg-center object-cover"
                     src="https://images.unsplash.com/photo-1551726824-bbeab11db685?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
                     alt=""
                   />
                 </div>
-                <Link className="flex mt-2.5 ml-2 text-lg" href="/">
-                  <div>Swarna Lehenga</div>
+                <Link className="flex mt-2.5 ml-2 text-lg " href="/">
+                  <div className="font-semibold leading-relaxed tracking-wide">
+                    Swarna Lehenga
+                  </div>
                 </Link>
               </div>
               {/* <div className="lg:hidden flex justify-center items-center w-[94vw]">
