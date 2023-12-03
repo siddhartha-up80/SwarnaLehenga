@@ -44,7 +44,7 @@ console.log('====================================');
                 {
                   orders.map((item, index)=>{
                       return (
-                        <tr>
+                        <tr key={index}>
                           <th>{index+1}</th>
                           <td>{item?.email}</td>
                           <td>{item?.address}</td>
