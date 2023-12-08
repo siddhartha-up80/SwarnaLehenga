@@ -1,4 +1,6 @@
 // pages/api/energyData.js
+import Energy from "@/models/Energy";
+import { connectToDB } from "@/utils/database";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -12,6 +14,16 @@ export default async function handler(req, res) {
       );
 
       // You can store the data in a database, perform additional calculations, etc.
+      await connectToDB();
+
+      const energydata = new Energy({
+        voltage,
+        current,
+        power,
+        energy,
+      });
+  
+      await energydata.save();
 
       // Respond with a success message
       res.status(200).json({ message: "Data received successfully" });
